@@ -1,5 +1,6 @@
 <div class="container">
     <div class="container">
+        <button (click)="makeRequestGetAll()" class="btn btn-secondary">Get All Repairs</button>
         <label for="ownerId">Enter Repair ID:</label>
         <input type="text" [(ngModel)]="repairId" name="repairId" required>
         <button (click)="makeRequest()" class="btn btn-primary">Get Repair</button>

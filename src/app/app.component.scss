@@ -1,7 +1,8 @@
 .navbar {
   background-color: hsl(212, 86%, 52%);
-  color: white;
-  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-nav {
@@ -14,13 +15,15 @@
 }
 
 .nav-item a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none; 
   transition: color 0.2s ease-in-out; 
 }
 
 .nav-item ul {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-item:hover ul {

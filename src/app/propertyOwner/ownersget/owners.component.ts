@@ -46,7 +46,7 @@ export class OwnersComponent implements OnInit {
       next: data => {
         this.response = data;
         this.loading = false;
-        this.ownerData = this.response.data;
+        this.ownerData = this.response;
       },
       error: er => this.message = "Error" + er.message,
       complete: () => this.message = "Completed..."

@@ -43,7 +43,7 @@ constructor(private service: PropertyService){
       next: data => {
         this.response = data;
         this.loading = false;
-        this.propertyData = this.response.data;
+        this.propertyData = this.response;
       },
       error: er => this.message = "Error" + er.message,
       complete: () => this.message = "Completed..."

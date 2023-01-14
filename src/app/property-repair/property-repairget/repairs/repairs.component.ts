@@ -43,7 +43,7 @@ makeRequestGetAll() {
     next: data => {
       this.response = data;
       this.loading = false;
-      this.repairData = this.response.data;
+      this.repairData = this.response;
     },
     error: er => this.message = "Error" + er.message,
     complete: () => this.message = "Completed..."
