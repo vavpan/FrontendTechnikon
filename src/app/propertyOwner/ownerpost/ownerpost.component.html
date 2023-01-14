@@ -1,0 +1,42 @@
+<form>
+  <div class="form-group">
+    <label for="vat">Vat</label>
+    <input [(ngModel)]="vat" name="vat" type="number" class="form-control" id="vat" placeholder="Enter vat">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input [(ngModel)]="name" name="name" type="text" class="form-control" id="name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="surname">Surname</label>
+    <input [(ngModel)]="surname" name="surname" type="text" class="form-control" id="surname"
+      placeholder="Enter surname">
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input [(ngModel)]="address" name="address" type="text" class="form-control" id="address"
+      placeholder="Enter address">
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">PhoneNumber</label>
+    <input [(ngModel)]="phoneNumber" name="phoneNumber" type="text" class="form-control" id="phoneNumber"
+      placeholder="Enter phoneNumber">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input [(ngModel)]="email" name="email" type="text" class="form-control" id="email" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input [(ngModel)]="username" name="username" type="text" class="form-control" id="username"
+      placeholder="Enter Username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input [(ngModel)]="password" name="password" type="text" class="form-control" id="password"
+      placeholder="Enter password">
+  </div>
+  <button (click)="postOwner()">Post Data</button>
+
+
+</form>

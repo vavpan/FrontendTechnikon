@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container">
+        <label for="propertyId">Enter Property ID:</label>
+        <input type="text" [(ngModel)]="propertyId" name="propertyId" required>
+        <button (click)="makeRequest()" class="btn btn-primary">Get Property</button> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Address</th>
+                    <th>e9</th>
+                    <th>Year Of Construction</th>
+                    <th>Property Type</th>
+
+                    
+
+             
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of propertyData">
+                    <td>{{data.id}}</td>
+                    <td>{{data.address}}</td>
+                    <td>{{data.e9}}</td>
+                    <td>{{data.yearOfConstruction}}</td>
+                    <td>{{data.propertyType}}</td>
+                    
+            
+
+         
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    

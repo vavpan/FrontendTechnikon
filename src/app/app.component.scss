@@ -1,24 +1,45 @@
 .navbar {
-    background-color: hsl(212, 86%, 52%);
-    color: white;
-    padding: 16px;
-  }
+  background-color: hsl(212, 86%, 52%);
+  color: white;
+  padding: 5px;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none; 
+  transition: color 0.2s ease-in-out; 
+}
+
+.nav-item ul {
+  display: none;
+}
+
+.nav-item:hover ul {
+  display: block;
+}
+
+
+body, html {
+  height: 100vh;
+  margin: 0;
+} 
+
+// footer {
+//   background-color: hsl(212, 86%, 52%);
+//   padding: 5px;
+//   color: white;
+//   text-align: center;
+//   position: relative;
+//   bottom: 0;
+//   width: 100%;
   
-  .navbar-nav {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .nav-item {
-    list-style: none;
-  }
-  
-  .nav-item a {
-    color: white;
-    text-decoration: none; /* This will remove the underline from the links */
-    transition: color 0.2s ease-in-out; 
-  }
-  
-  .nav-item a:hover {
-    color: hsl(212, 86%, 72%); 
-  }
+// }

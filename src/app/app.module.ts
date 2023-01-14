@@ -6,12 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotfoundComponent } from './status/notfound/notfound.component';
 import { HomeComponent } from './home/home/home.component';
-import { OwnersComponent } from './owners/owners/owners.component';
-import { OwnerpostComponent } from './post/ownerpost/ownerpost.component';
-import { OwnerdeleteComponent } from './delete/ownerdelete/ownerdelete.component';
-import { OwnerputComponent } from './put/ownerput/ownerput.component';
+import { OwnersComponent } from './propertyOwner/ownersget/owners.component'; 
+import { OwnerpostComponent } from './propertyOwner/ownerpost/ownerpost.component'; 
+import { OwnerdeleteComponent } from './propertyOwner/ownerdelete/ownerdelete.component'; 
+import { OwnerputComponent } from './propertyOwner/ownerput/ownerput.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PropertyComponent } from './property/propertyget/property/property.component'; 
+import { PropertypostComponent } from './property/propertypost/propertypost/propertypost.component';
+import { PropertyputComponent } from './property/propertyput/propertyput/propertyput.component';
+import { PropertydeleteComponent } from './property/propertydelete/propertydelete/propertydelete.component';
+import { RepairsComponent } from './property-repair/property-repairget/repairs/repairs.component';
+import { RepairpostComponent } from './property-repair/property-repairpost/repairpost/repairpost.component';
+import { RepairputComponent } from './property-repair/property-repairput/repairput/repairput.component';
+import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OwnersComponent,
     OwnerpostComponent,
     OwnerdeleteComponent,
-    OwnerputComponent
+    OwnerputComponent,
+    PropertyComponent,
+    PropertypostComponent,
+    PropertyputComponent,
+    PropertydeleteComponent,
+    RepairsComponent,
+    RepairpostComponent,
+    RepairputComponent,
+    RepairdeleteComponent
   ],
   imports: [
     BrowserModule,
