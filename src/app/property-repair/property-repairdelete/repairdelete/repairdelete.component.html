@@ -1,1 +1,12 @@
-<p>repairdelete works!</p>
+<div class="container">
+    <div class="container">
+        <label for="repairId">Enter Repair ID:</label>
+        <input type="text" [(ngModel)]="repairId" name="repairId" required>
+        <button (click)="deleteOwner()" class="btn btn-primary">Delete owner</button>
+        <p>{{message}}</p>
+    </div>
+</div>
+
+
+
+

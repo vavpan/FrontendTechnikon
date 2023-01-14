@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RepairdeleteComponent implements OnInit {
 
+  message: string = '';
   response: any;
   repairId!: number;
 
@@ -23,10 +24,11 @@ export class RepairdeleteComponent implements OnInit {
     this.service.delete(this.repairId).subscribe(
       data => {
         console.log("DELETE request is successful ", data);
-
+        this.message = 'Deleted successfully';
       },
       error => {
         console.log("Error", error);
+        this.message = 'Error deleting: ' + error.message;
       }
     );
   }

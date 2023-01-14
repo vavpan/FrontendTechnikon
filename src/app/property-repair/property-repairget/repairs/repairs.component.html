@@ -1,1 +1,40 @@
-<p>repairs works!</p>
+<div class="container">
+    <div class="container">
+        <label for="ownerId">Enter Repair ID:</label>
+        <input type="text" [(ngModel)]="repairId" name="repairId" required>
+        <button (click)="makeRequest()" class="btn btn-primary">Get Repair</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Acceptance</th>
+                    <th>ActualStartDate</th>
+                    <th>ActualEndDate</th>
+                    <th>Cost</th>
+                    <th>Repair Description</th>
+                    <th>Repair Status</th>
+                    <th>Repair Type</th>
+                    <th>StartDate</th>
+                    <th>SubmissionDate</th>
+                    <th>WorkDescription</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of repairData">
+                    <td>{{data.id}}</td>
+                    <td>{{data.acceptance}}</td>
+                    <td>{{data.actualStartDate}}</td>
+                    <td>{{data.actualEndDate}}</td>
+                    <td>{{data.cost}}</td>
+                    <td>{{data.repairDescription}}</td>
+                    <td>{{data.repairStatus}}</td>
+                    <td>{{data.repairType}}</td>
+                    <td>{{data.startDate}}</td>
+                    <td>{{data.submissionDate}}</td>
+                    <td>{{data.workDescription}}</td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>

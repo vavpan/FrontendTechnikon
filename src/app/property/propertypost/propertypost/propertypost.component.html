@@ -1,1 +1,23 @@
-<p>propertypost works!</p>
+<form>
+    <div class="form-group">
+      <label for="vat">E9</label>
+      <input [(ngModel)]="e9" name="e9" type="number" class="form-control" id="e9" placeholder="Enter e9">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input [(ngModel)]="address" name="address" type="text" class="form-control" id="address" placeholder="Enter address">
+    </div>
+    <div class="form-group">
+      <label for="surname">Year Of Construction</label>
+      <input [(ngModel)]="yearOfConstruction" name="surname" type="text" class="form-control" id="yearOfConstruction"
+        placeholder="Enter Year Of Construction">
+    </div>
+    <div class="form-group">
+      <label for="propertyType">Property Type</label>
+      <input [(ngModel)]="propertyType" name="propertyType" type="text" class="form-control" id="propertyType"
+        placeholder="Enter Property Type">
+    </div>
+    <button (click)="postProperty()">Post Data</button>
+  
+  
+  </form>

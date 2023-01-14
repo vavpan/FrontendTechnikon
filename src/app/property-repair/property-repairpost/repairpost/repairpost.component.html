@@ -1,1 +1,61 @@
-<p>repairpost works!</p>
+<form>
+    <div class="form-group">
+      <label for="acceptance">Acceptance</label>
+      <input [(ngModel)]="acceptance" name="acceptance" type="boolean" class="form-control" id="acceptance" placeholder="Enter acceptance">
+    </div>
+    <div class="form-group">
+      <label for="actualStartDate">Actual Start Date</label>
+      <input [(ngModel)]="actualStartDate" name="actualStartDate" type="text" class="form-control" id="actualStartDate" placeholder="Enter Actual Start Date">
+    </div>
+    <div class="form-group">
+      <label for="actualEndDate">Actual End Date</label>
+      <input [(ngModel)]="actualEndDate" name="actualEndDate" type="text" class="form-control" id="actualEndDate"
+        placeholder="Actual End Date">
+    </div>
+    <div class="form-group">
+      <label for="address">Cost</label>
+      <input [(ngModel)]="cost" name="address" type="number" class="form-control" id="cost"
+        placeholder="Enter Cost">
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input [(ngModel)]="startDate" name="startDate" type="text" class="form-control" id="startDate"
+        placeholder="Enter Start Date">
+    </div>
+    <div class="form-group">
+      <label for="endDate">endDate</label>
+      <input [(ngModel)]="endDate" name="email" type="text" class="form-control" id="endDate" placeholder="Enter End Date">
+    </div>
+    <div class="form-group">
+      <label for="repairDescription">Repair Description</label>
+      <input [(ngModel)]="repairDescription" name="repairDescription" type="text" class="form-control" id="repairDescription"
+        placeholder="Enter Repair Description">
+    </div>
+    <div class="form-group">
+      <label for="repairStatus">Password</label>
+      <input [(ngModel)]="repairStatus" name="repairStatus" type="text" class="form-control" id="repairStatus"
+        placeholder="Enter repairStatus">
+    </div>
+
+    <div class="form-group">
+        <label for="repairType">Repair Type</label>
+        <input [(ngModel)]="repairType" name="repairType" type="text" class="form-control" id="repairType"
+          placeholder="Enter Repair Type">
+      </div>
+
+      <div class="form-group">
+        <label for="submissionDate">Submission Date</label>
+        <input [(ngModel)]="submissionDate" name="submissionDate" type="text" class="form-control" id="submissionDate"
+          placeholder="Enter Submission Date">
+      </div>
+
+      <div class="form-group">
+        <label for="workDescription">Work Description</label>
+        <input [(ngModel)]="workDescription" name="workDescription" type="text" class="form-control" id="workDescription"
+          placeholder="Enter Work Description">
+      </div>
+
+    <button (click)="postRepair()">Post Data</button>
+  
+  
+  </form>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repairpost.component.scss']
 })
 export class RepairpostComponent implements OnInit {
-
+  
   repairType!: string;
   repairDescription!: string;
   submissionDate!: string;
