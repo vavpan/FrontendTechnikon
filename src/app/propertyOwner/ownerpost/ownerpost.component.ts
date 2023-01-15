@@ -1,4 +1,4 @@
-import { OwnersService } from 'src/app/services/owner/owners.service'; 
+import { OwnersService } from 'src/app/services/owner/owners.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

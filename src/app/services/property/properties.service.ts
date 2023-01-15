@@ -51,8 +51,8 @@ export class PropertyService {
 
   }
 
-  put(data:any) {
-    const url = 'http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/1';
+  put(id:number , data:any) {
+    const url = 'http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${id}';
 
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')

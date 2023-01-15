@@ -6,30 +6,46 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './propertyput.component.html',
   styleUrls: ['./propertyput.component.scss']
 })
-export class PropertyputComponent implements OnInit{
+export class PropertyputComponent implements OnInit {
 
+  propertyId!: number;
+  e9!: number;
+  address!: string;
+  yearOfConstruction!: string;
+  propertyType!: string;
+  response: any;
+  message!: string;
 
-response: any;
+  constructor(private service: PropertyService) {
 
-constructor(private service: PropertyService){
+  }
 
-}
+  ngOnInit(): void {
 
-ngOnInit(): void {
-  
-}
+  }
 
-putProperty(){
+  putProperty(id: number) {
 
-const data = {
+    const data = {
+      id: id,
+      e9: this.e9,
+      address: this.address,
+      yearOfConstruction: this.yearOfConstruction,
+      propertyType: this.propertyType
+    }
+   this.service.put(id,data).subscribe({
+    next: data => {
+      this.response = data;
+      this.message = 'Property updated successfully';
+    },
+    error: error => {
+      this.message = 'Error updating property: ' + error.message;
+    }
+  });
+    
+   
 
-}
-
-this.service.put(data).subscribe({
-  next: data => this.response = data
-})
-
-}
+  }
 
 
 
