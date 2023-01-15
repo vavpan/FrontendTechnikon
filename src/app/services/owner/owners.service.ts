@@ -26,6 +26,32 @@ export class OwnersService {
       );
   }
 
+
+  getByVat(vat: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/vat/${vat}`;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  getByEmail(email: string) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/email/${email}`;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+
   getAll() {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owners`;
     const headers = new HttpHeaders()

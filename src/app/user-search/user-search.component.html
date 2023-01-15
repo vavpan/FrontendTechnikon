@@ -1,0 +1,37 @@
+<div class="container">
+    <label for="ownerId">Enter Owner VAT:</label>
+    <input type="text" [(ngModel)]="vat" name="ownerId">
+    <label for="email">Enter Owner Email:</label>
+    <input type="text" [(ngModel)]="email" name="email">
+    <button (click)="searchOwner(vat,email)" class="btn btn-primary">Get owner</button>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Vat</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Address</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of ownerData">
+                <td>{{data.id}}</td>
+                <td>{{data.vat}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.surname}}</td>
+                <td>{{data.address}}</td>
+                <td>{{data.phoneNumber}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.username}}</td>
+                <td>{{data.password}}</td>
+
+            </tr>
+        </tbody>
+
+    </table>
+</div>

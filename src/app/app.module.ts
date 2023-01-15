@@ -21,6 +21,7 @@ import { RepairpostComponent } from './property-repair/property-repairpost/repai
 import { RepairputComponent } from './property-repair/property-repairput/repairput/repairput.component';
 import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
 import { SelfRegistrationComponent } from './self-registration/self-registration.component';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SelfRegistrationComponent } from './self-registration/self-registration
     RepairpostComponent,
     RepairputComponent,
     RepairdeleteComponent,
-    SelfRegistrationComponent
+    SelfRegistrationComponent,
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,
