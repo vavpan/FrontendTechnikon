@@ -21,7 +21,7 @@ export class PropertydeleteComponent implements OnInit {
 
   }
 
-  deleteOwner() {
+  deleteProperty() {
     this.service.delete(this.propertyId).subscribe(
       data => {
         console.log("DELETE request is successful ", data);

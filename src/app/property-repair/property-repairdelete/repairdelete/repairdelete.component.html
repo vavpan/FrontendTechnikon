@@ -1,12 +1,10 @@
 <div class="container">
     <div class="container">
-        <label for="repairId">Enter Repair ID:</label>
-        <input type="text" [(ngModel)]="repairId" name="repairId" required>
-        <button (click)="deleteOwner()" class="btn btn-primary">Delete owner</button>
+        <label for="ownerId">Enter Repair ID:</label>
+        <input type="text" [(ngModel)]="repairId" name="ownerId" required>
+        <button (click)="deleteRepair()" class="btn btn-primary" onclick="confirm('Are you sure you want to delete this repair?')">Delete repair</button>
         <p>{{message}}</p>
     </div>
 </div>
-
-
 
 

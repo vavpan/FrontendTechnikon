@@ -20,7 +20,7 @@ export class RepairdeleteComponent implements OnInit {
 
   }
 
-  deleteOwner() {
+  deleteRepair() {
     this.service.delete(this.repairId).subscribe(
       data => {
         console.log("DELETE request is successful ", data);

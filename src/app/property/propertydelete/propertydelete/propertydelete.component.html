@@ -2,11 +2,8 @@
     <div class="container">
         <label for="propertyId">Enter Property ID:</label>
         <input type="text" [(ngModel)]="propertyId" name="propertyId" required>
-        <button (click)="deleteOwner()" class="btn btn-primary">Delete property</button>
+        <button (click)="deleteProperty()" class="btn btn-primary"
+            onclick="confirm('Are you sure you want to delete this property?')">Delete property</button>
         <p>{{message}}</p>
     </div>
 </div>
-
-
-
-

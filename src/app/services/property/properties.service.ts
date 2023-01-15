@@ -65,8 +65,8 @@ export class PropertyService {
       );
   }
 
-  delete(repairId: number) {
-    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${repairId}`;
+  delete(propertyId: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${propertyId}`;
 
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
