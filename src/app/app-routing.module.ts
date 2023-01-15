@@ -1,3 +1,4 @@
+import { SelfRegistrationComponent } from './self-registration/self-registration.component';
 import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
 import { RepairputComponent } from './property-repair/property-repairput/repairput/repairput.component';
 import { RepairpostComponent } from './property-repair/property-repairpost/repairpost/repairpost.component';
@@ -17,6 +18,7 @@ import { OwnersComponent } from './propertyOwner/ownersget/owners.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'self-registration' , component: SelfRegistrationComponent},
   { path: 'GetOwners', component: OwnersComponent },
   { path: 'OwnerPost', component: OwnerpostComponent },
   { path: 'OwnerPut', component: OwnerputComponent },

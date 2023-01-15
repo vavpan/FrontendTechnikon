@@ -20,6 +20,7 @@ import { RepairsComponent } from './property-repair/property-repairget/repairs/r
 import { RepairpostComponent } from './property-repair/property-repairpost/repairpost/repairpost.component';
 import { RepairputComponent } from './property-repair/property-repairput/repairput/repairput.component';
 import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
+import { SelfRegistrationComponent } from './self-registration/self-registration.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RepairdeleteComponent } from './property-repair/property-repairdelete/r
     RepairsComponent,
     RepairpostComponent,
     RepairputComponent,
-    RepairdeleteComponent
+    RepairdeleteComponent,
+    SelfRegistrationComponent
   ],
   imports: [
     BrowserModule,
