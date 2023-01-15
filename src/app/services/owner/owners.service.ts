@@ -54,21 +54,20 @@ export class OwnersService {
 
   }
 
-  put(data: any) {
-
-    const url = 'http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/4';
-
+  put(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/${id}`;
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('crossDomain', 'true');
-
     return this.http.put(url, data, { headers: headers })
       .pipe(
         retry(1),
         catchError(error => throwError(() => 'Something is wrong...'))
       );
-
   }
+   
+
+  
 
 
   delete(ownerId: number) {

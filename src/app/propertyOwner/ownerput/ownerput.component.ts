@@ -1,5 +1,7 @@
+import { OwnersComponent } from './../ownersget/owners.component';
 import { Component, OnInit } from '@angular/core';
-import { OwnersService } from 'src/app/services/owner/owners.service'; 
+import { OwnersService } from 'src/app/services/owner/owners.service';
+
 
 @Component({
   selector: 'app-ownerput',
@@ -8,31 +10,51 @@ import { OwnersService } from 'src/app/services/owner/owners.service';
 })
 export class OwnerputComponent implements OnInit {
 
+  ownersComponent: OwnersComponent = new OwnersComponent(this.service);
+
+  ownerId!: number;
+  vat!: number;
+  name!: string;
+  surname!: string;
+  address!: string;
+  phoneNumber!: string;
+  email!: string;
+  username!: string;
+  password!: string;
   response: any;
+  message!: string;
+
+
 
   constructor(private service: OwnersService) { }
 
   ngOnInit(): void {
   }
 
-  putOwner() {
-
-    const data =
-    {
-      "vat": 1,
-      "name": "THIS IS A PUT TEST",
-      "surname": "Dan Jukes",
-      "address": "Dan Jukes",
-      "phoneNumber": "sss",
-      "email": "sss",
-      "username": "sss",
-      "password": "sss"
+  putOwner(id: number) {
+    const data = {
+      id: id,
+      vat: this.vat,
+      name: this.name,
+      surname: this.surname,
+      address: this.address,
+      phoneNumber: this.phoneNumber,
+      email: this.email,
+      username: this.username,
+      password: this.password
     }
-
-    this.service.put(data).subscribe({
-      next: data => this.response = data
+    this.service.put(id, data).subscribe({
+      next: data => {
+        this.response = data;
+        this.message = 'Owner updated successfully';
+      },
+      error: error => {
+        this.message = 'Error updating owner: ' + error.message;
+      }
     });
-
   }
-
 }
+
+
+
+

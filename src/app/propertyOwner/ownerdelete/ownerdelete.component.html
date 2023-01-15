@@ -2,11 +2,10 @@
     <div class="container">
         <label for="ownerId">Enter Owner ID:</label>
         <input type="text" [(ngModel)]="ownerId" name="ownerId" required>
-        <button (click)="deleteOwner()" class="btn btn-primary">Delete owner</button>
+        <button (click)="deleteOwner()" class="btn btn-primary" onclick="confirm('Are you sure you want to delete this owner?')">Delete owner</button>
         <p>{{message}}</p>
     </div>
 </div>
-
 
 
 
