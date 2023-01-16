@@ -1,3 +1,5 @@
+import { RepairSearchComponent } from './repair-search/repair-search.component';
+import { PropertySearchComponent } from './property-search/property-search.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { SelfRegistrationComponent } from './self-registration/self-registration.component';
 import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'PutRepair' , component: RepairputComponent},
   { path: 'DeleteRepair' , component: RepairdeleteComponent},
   { path: 'UserSearch' , component: UserSearchComponent},
+  { path: 'PropertySearch' , component: PropertySearchComponent},
+  { path: 'RepairSearch' , component: RepairSearchComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent }
 

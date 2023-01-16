@@ -24,6 +24,30 @@ export class RepairService {
       );
   }
 
+  getBySubmissionDate(submissionDate: string){
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs/submissionDate/${submissionDate}`;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  getByOwnerId(id : number){
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs/owner/${id}`;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
 
   getAll() {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs`;

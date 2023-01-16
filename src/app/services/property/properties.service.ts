@@ -24,6 +24,30 @@ export class PropertyService {
       );
   }
 
+  getByVat(vat: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/properties/ownerVat/${vat}`;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  getByE9(e9 : number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/e9/${e9}`;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
   getAll() {
     const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/properties`;
     const headers = new HttpHeaders()
@@ -51,7 +75,7 @@ export class PropertyService {
 
   }
 
-  put(id:number , data:any) {
+  put(id: number, data: any) {
     const url = 'http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${id}';
 
     const headers = new HttpHeaders()
