@@ -16,7 +16,10 @@ export class PropertySearchComponent implements OnInit {
   e9!: number;
 
 
-  constructor(private service: PropertyService) { }
+  constructor(private service: PropertyService) { 
+
+  }
+
 
   ngOnInit(): void {
   }
@@ -24,11 +27,11 @@ export class PropertySearchComponent implements OnInit {
 
 
   searchProperty(vat: number, e9: number) {
-
+          
     this.loading = true;
-    if (vat) {
+    if(vat){
       this.service.getByVat(vat).subscribe({
-        next: data => {
+        next:data => {
           this.response = data;
           this.loading = false;
           this.propertyData = [this.response.data];
@@ -38,20 +41,21 @@ export class PropertySearchComponent implements OnInit {
         error: er => this.message = "Error" + er.message,
         complete: () => this.message = "Completed..."
       });
-    } else if (e9) {
+    } else if (e9){
       this.service.getByE9(e9).subscribe({
-        next: data => {
+        next : data => {
           this.response = data;
           this.loading = false;
-          this.propertyData = [this.response.data];
+          this.propertyData = [this.response];
           this.vat = 0;
           this.e9 = 0;
         },
         error: er => this.message = "Error" + er.message,
         complete: () => this.message = "Completed..."
-      });
+      })
     }
+}
 
-  }
+
 
 }

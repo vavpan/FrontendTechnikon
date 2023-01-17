@@ -14,9 +14,13 @@ export class RepairService {
 
   get(repairId: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repair/${repairId}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -24,11 +28,14 @@ export class RepairService {
       );
   }
 
-  getBySubmissionDate(submissionDate: string){
+  getBySubmissionDate(submissionDate: string) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs/submissionDate/${submissionDate}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -36,11 +43,14 @@ export class RepairService {
       );
   }
 
-  getByOwnerId(id : number){
+  getByOwnerId(id: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs/owner/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -51,9 +61,12 @@ export class RepairService {
 
   getAll() {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -63,10 +76,12 @@ export class RepairService {
 
   post(data: any) {
     const url = 'http://localhost:8080/WebTechnikonProject/resources/repairResource/repair';
-
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.post(url, JSON.stringify(data), { headers: headers })
       .pipe(
@@ -75,12 +90,15 @@ export class RepairService {
       );
   }
 
-  put(id:number , data: any) {
+  put(id: number, data: any) {
     const url = 'http://localhost:8080/WebTechnikonProject/resources/repairResource/repair/${id}';
-
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
 
     return this.http.put(url, data, { headers: headers })
       .pipe(
@@ -91,10 +109,12 @@ export class RepairService {
 
   delete(repairId: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repair/${repairId}`;
-
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.delete(url, { headers: headers })
       .pipe(

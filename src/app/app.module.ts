@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from "@angular/forms";
+
+
 import { AppComponent } from './app.component';
 import { NotfoundComponent } from './status/notfound/notfound.component';
 import { HomeComponent } from './home/home/home.component';
-import { OwnersComponent } from './propertyOwner/ownersget/owners.component'; 
-import { OwnerpostComponent } from './propertyOwner/ownerpost/ownerpost.component'; 
-import { OwnerdeleteComponent } from './propertyOwner/ownerdelete/ownerdelete.component'; 
+import { OwnersComponent } from './propertyOwner/ownersget/owners.component';
+import { OwnerpostComponent } from './propertyOwner/ownerpost/ownerpost.component';
+import { OwnerdeleteComponent } from './propertyOwner/ownerdelete/ownerdelete.component';
 import { OwnerputComponent } from './propertyOwner/ownerput/ownerput.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PropertyComponent } from './property/propertyget/property/property.component'; 
+import { PropertyComponent } from './property/propertyget/property/property.component';
 import { PropertypostComponent } from './property/propertypost/propertypost/propertypost.component';
 import { PropertyputComponent } from './property/propertyput/propertyput/propertyput.component';
 import { PropertydeleteComponent } from './property/propertydelete/propertydelete/propertydelete.component';
@@ -24,6 +26,9 @@ import { SelfRegistrationComponent } from './self-registration/self-registration
 import { UserSearchComponent } from './user-search/user-search.component';
 import { PropertySearchComponent } from './property-search/property-search.component';
 import { RepairSearchComponent } from './repair-search/repair-search.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { AuthenticationService } from './services/authentication/AuthenticationService';
 
 @NgModule({
   declarations: [
@@ -45,16 +50,19 @@ import { RepairSearchComponent } from './repair-search/repair-search.component';
     SelfRegistrationComponent,
     UserSearchComponent,
     PropertySearchComponent,
-    RepairSearchComponent
+    RepairSearchComponent,
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

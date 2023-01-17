@@ -1,6 +1,6 @@
 <div class="container">
     <label for="propertyId">Enter Owner VAT:</label>
-    <input type="text" [(ngModel)]="vat" name="vat">
+    <input type="text" [(ngModel)]="vat" name="propertyId">
     <label for="e9">Enter Owner e9:</label>
     <input type="text" [(ngModel)]="e9" name="e9">
     <button (click)="searchProperty(vat,e9)" class="btn btn-primary">Get Property</button>
@@ -12,17 +12,16 @@
                 <th>e9</th>
                 <th>Year Of Construction</th>
                 <th>Property Type</th>
-      </tr>
+            </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of propertyData">
-                <td>{{data.id}}</td>
-                <td>{{data.address}}</td>
-                <td>{{data.e9}}</td>
-                <td>{{data.yearOfConstruction}}</td>
-                <td>{{data.propertyType}}</td>
-         </tr>
+                <td *ngIf="data">{{data.id}}</td>
+                <td *ngIf="data">{{data.address}}</td>
+                <td *ngIf="data">{{data.e9}}</td>
+                <td *ngIf="data">{{data.yearOfConstruction}}</td>
+                <td *ngIf="data">{{data.propertyType}}</td>
+            </tr>
         </tbody>
-
     </table>
 </div>

@@ -15,7 +15,10 @@ export class RepairSearchComponent implements OnInit {
   submissionDate!: string;
   ownerId!: number;
 
-  constructor(private service: RepairService) { }
+  constructor(private service: RepairService) {
+    this.repairData = []
+
+   }
 
   ngOnInit(): void {
   }

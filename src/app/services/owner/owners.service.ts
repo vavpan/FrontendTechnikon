@@ -16,9 +16,12 @@ export class OwnersService {
 
   get(ownerId: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/${ownerId}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -29,9 +32,12 @@ export class OwnersService {
 
   getByVat(vat: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/vat/${vat}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -41,9 +47,12 @@ export class OwnersService {
 
   getByEmail(email: string) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/email/${email}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -54,9 +63,12 @@ export class OwnersService {
 
   getAll() {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owners`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
@@ -67,10 +79,13 @@ export class OwnersService {
   post(data: any) {
 
     const url = 'http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner';
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
 
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.post(url, JSON.stringify(data), { headers: headers })
       .pipe(
@@ -82,26 +97,31 @@ export class OwnersService {
 
   put(id: number, data: any) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.put(url, data, { headers: headers })
       .pipe(
         retry(1),
         catchError(error => throwError(() => 'Something is wrong...'))
       );
   }
-   
 
-  
+
+
 
 
   delete(ownerId: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/${ownerId}`;
-
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('crossDomain', 'true');
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.delete(url, { headers: headers })
       .pipe(

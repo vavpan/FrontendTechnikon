@@ -18,18 +18,23 @@
     <li class="nav-item"><a routerLink="/UserSearch">User Search</a></li>
     <li class="nav-item"><a routerLink="/PropertySearch">Property Search</a></li>
     <li class="nav-item"><a routerLink="/RepairSearch">Repair Search</a></li>
+    <li class="nav-item"><a class="logout" (click)="logout()">Logout</a></li>
 
 
 
   </ul>
+
 </nav>
 
 <!-- Main Content -->
 <div class="main-content">
+  <app-header></app-header>
   <router-outlet></router-outlet>
 </div>
 
 <!-- Footer Content-->
-<!-- <footer>
-  <p>Copyright © 2021</p>
-</footer> -->
+<div class="footer-container">
+  <footer>
+    <p>Copyright © 2023</p>
+  </footer>
+</div>
