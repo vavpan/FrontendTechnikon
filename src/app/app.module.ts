@@ -1,34 +1,34 @@
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { RepairSearchComponent } from './components/repair-search/repair-search.component';
+import { PropertySearchComponent } from './components/property-search/property-search.component';
+import { UserSearchComponent } from './components/user-search/user-search.component';
+import { RepairdeleteComponent } from './components/property-repair/property-repairdelete/repairdelete/repairdelete.component';
+import { RepairputComponent } from './components/property-repair/property-repairput/repairput/repairput.component';
+import { RepairpostComponent } from './components/property-repair/property-repairpost/repairpost/repairpost.component';
+import { RepairsComponent } from './components/property-repair/property-repairget/repairs/repairs.component';
+import { PropertydeleteComponent } from './components/property/propertydelete/propertydelete/propertydelete.component';
+import { PropertyputComponent } from './components/property/propertyput/propertyput/propertyput.component';
+import { PropertypostComponent } from './components/property/propertypost/propertypost/propertypost.component';
+import { PropertyComponent } from './components/property/propertyget/property/property.component';
+import { OwnerputComponent } from './components/propertyOwner/ownerput/ownerput.component';
+import { OwnerdeleteComponent } from './components/propertyOwner/ownerdelete/ownerdelete.component';
+import { OwnerpostComponent } from './components/propertyOwner/ownerpost/ownerpost.component';
+import { OwnersComponent } from './components/propertyOwner/ownersget/owners.component';
+import { HomeComponent } from './components/home/home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from "@angular/forms";
-
-
 import { AppComponent } from './app.component';
-import { NotfoundComponent } from './status/notfound/notfound.component';
-import { HomeComponent } from './home/home/home.component';
-import { OwnersComponent } from './propertyOwner/ownersget/owners.component';
-import { OwnerpostComponent } from './propertyOwner/ownerpost/ownerpost.component';
-import { OwnerdeleteComponent } from './propertyOwner/ownerdelete/ownerdelete.component';
-import { OwnerputComponent } from './propertyOwner/ownerput/ownerput.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PropertyComponent } from './property/propertyget/property/property.component';
-import { PropertypostComponent } from './property/propertypost/propertypost/propertypost.component';
-import { PropertyputComponent } from './property/propertyput/propertyput/propertyput.component';
-import { PropertydeleteComponent } from './property/propertydelete/propertydelete/propertydelete.component';
-import { RepairsComponent } from './property-repair/property-repairget/repairs/repairs.component';
-import { RepairpostComponent } from './property-repair/property-repairpost/repairpost/repairpost.component';
-import { RepairputComponent } from './property-repair/property-repairput/repairput/repairput.component';
-import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
-import { SelfRegistrationComponent } from './self-registration/self-registration.component';
-import { UserSearchComponent } from './user-search/user-search.component';
-import { PropertySearchComponent } from './property-search/property-search.component';
-import { RepairSearchComponent } from './repair-search/repair-search.component';
-import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
-import { AuthenticationService } from './services/authentication/AuthenticationService';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { NotfoundComponent } from './components/status/notfound/notfound.component';
+import { SelfRegistrationComponent } from './components/self-registration/self-registration.component';
+
 
 @NgModule({
   declarations: [
@@ -60,9 +60,11 @@ import { AuthenticationService } from './services/authentication/AuthenticationS
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatButtonModule
   ],
-  providers: [AuthenticationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

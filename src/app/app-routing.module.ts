@@ -1,29 +1,30 @@
-import { LoginComponent } from './login/login.component';
-import { RepairSearchComponent } from './repair-search/repair-search.component';
-import { PropertySearchComponent } from './property-search/property-search.component';
-import { UserSearchComponent } from './user-search/user-search.component';
-import { SelfRegistrationComponent } from './self-registration/self-registration.component';
-import { RepairdeleteComponent } from './property-repair/property-repairdelete/repairdelete/repairdelete.component';
-import { RepairputComponent } from './property-repair/property-repairput/repairput/repairput.component';
-import { RepairpostComponent } from './property-repair/property-repairpost/repairpost/repairpost.component';
-import { RepairsComponent } from './property-repair/property-repairget/repairs/repairs.component';
-import { PropertydeleteComponent } from './property/propertydelete/propertydelete/propertydelete.component';
-import { PropertyputComponent } from './property/propertyput/propertyput/propertyput.component';
-import { PropertypostComponent } from './property/propertypost/propertypost/propertypost.component';
-import { PropertyComponent } from './property/propertyget/property/property.component';
-import { OwnerputComponent } from './propertyOwner/ownerput/ownerput.component';
-import { OwnerdeleteComponent } from './propertyOwner/ownerdelete/ownerdelete.component';
-import { OwnerpostComponent } from './propertyOwner/ownerpost/ownerpost.component';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { NotfoundComponent } from './status/notfound/notfound.component';
-import { HomeComponent } from './home/home/home.component';
-import { OwnersComponent } from './propertyOwner/ownersget/owners.component';
+import { NotfoundComponent } from './components/status/notfound/notfound.component';
+import { OwnersComponent } from './components/propertyOwner/ownersget/owners.component';
+import { HomeComponent } from './components/home/home/home.component';
+import { OwnerpostComponent } from './components/propertyOwner/ownerpost/ownerpost.component';
+import { OwnerdeleteComponent } from './components/propertyOwner/ownerdelete/ownerdelete.component';
+import { OwnerputComponent } from './components/propertyOwner/ownerput/ownerput.component';
+import { PropertyComponent } from './components/property/propertyget/property/property.component';
+import { PropertypostComponent } from './components/property/propertypost/propertypost/propertypost.component';
+import { PropertyputComponent } from './components/property/propertyput/propertyput/propertyput.component';
+import { PropertydeleteComponent } from './components/property/propertydelete/propertydelete/propertydelete.component';
+import { RepairsComponent } from './components/property-repair/property-repairget/repairs/repairs.component';
+import { RepairpostComponent } from './components/property-repair/property-repairpost/repairpost/repairpost.component';
+import { RepairputComponent } from './components/property-repair/property-repairput/repairput/repairput.component';
+import { RepairdeleteComponent } from './components/property-repair/property-repairdelete/repairdelete/repairdelete.component';
+import { SelfRegistrationComponent } from './components/self-registration/self-registration.component';
+import { UserSearchComponent } from './components/user-search/user-search.component';
+import { PropertySearchComponent } from './components/property-search/property-search.component';
+import { RepairSearchComponent } from './components/repair-search/repair-search.component';
+import { LoginComponent } from './components/login/login.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+
 
 const routes: Routes = [                                   
   { path: 'home', component: HomeComponent , canActivate: [AuthenticationGuard]},
-  { path: 'self-registration', component: SelfRegistrationComponent, canActivate: [AuthenticationGuard] },
+  { path: 'self-registration', component: SelfRegistrationComponent},
   { path: 'GetOwners', component: OwnersComponent, canActivate: [AuthenticationGuard] },
   { path: 'OwnerPost', component: OwnerpostComponent, canActivate: [AuthenticationGuard] },
   { path: 'OwnerPut', component: OwnerputComponent, canActivate: [AuthenticationGuard] },
