@@ -17,29 +17,31 @@ import { UserSearchComponent } from './components/user-search/user-search.compon
 import { PropertySearchComponent } from './components/property-search/property-search.component';
 import { RepairSearchComponent } from './components/repair-search/repair-search.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthenticationGuard } from './guards/authentication.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { UserGuard } from './guards/user.guard';
+import { AllowAllGuard } from './guards/allow-all-guard.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 
 const routes: Routes = [                                   
-  { path: 'home', component: HomeComponent , canActivate: [AuthenticationGuard]},
-  { path: 'self-registration', component: SelfRegistrationComponent},
-  { path: 'GetOwners', component: OwnersComponent, canActivate: [AuthenticationGuard] },
-  { path: 'OwnerPost', component: OwnerpostComponent, canActivate: [AuthenticationGuard] },
-  { path: 'OwnerPut', component: OwnerputComponent, canActivate: [AuthenticationGuard] },
-  { path: 'OwnerDelete', component: OwnerdeleteComponent, canActivate: [AuthenticationGuard] },
-  { path: 'GetProperty', component: PropertyComponent, canActivate: [AuthenticationGuard] },
-  { path: 'PostProperty', component: PropertypostComponent, canActivate: [AuthenticationGuard] },
-  { path: 'PutProperty', component: PropertyputComponent, canActivate: [AuthenticationGuard] },
-  { path: 'DeleteProperty', component: PropertydeleteComponent, canActivate: [AuthenticationGuard] },
-  { path: 'GetRepair', component: RepairsComponent, canActivate: [AuthenticationGuard] },
-  { path: 'PostRepair', component: RepairpostComponent, canActivate: [AuthenticationGuard] },
-  { path: 'PutRepair', component: RepairputComponent, canActivate: [AuthenticationGuard] },
-  { path: 'DeleteRepair', component: RepairdeleteComponent, canActivate: [AuthenticationGuard] },
-  { path: 'UserSearch', component: UserSearchComponent, canActivate: [AuthenticationGuard] },
-  { path: 'PropertySearch', component: PropertySearchComponent, canActivate: [AuthenticationGuard] },
-  { path: 'RepairSearch', component: RepairSearchComponent, canActivate: [AuthenticationGuard] },
+  { path: 'home', component: HomeComponent , canActivate: [AllowAllGuard]},
+  { path: 'self-registration', component: SelfRegistrationComponent, canActivate: [AllowAllGuard]},
+  { path: 'GetOwners', component: OwnersComponent, canActivate: [AdminGuard] },
+  { path: 'OwnerPost', component: OwnerpostComponent, canActivate: [AdminGuard] },
+  { path: 'OwnerPut', component: OwnerputComponent, canActivate: [AdminGuard, UserGuard] },
+  { path: 'OwnerDelete', component: OwnerdeleteComponent, canActivate: [AdminGuard, UserGuard]},
+  { path: 'GetProperty', component: PropertyComponent, canActivate: [AdminGuard] },
+  { path: 'PostProperty', component: PropertypostComponent, canActivate: [AdminGuard] },
+  { path: 'PutProperty', component: PropertyputComponent, canActivate: [AdminGuard, UserGuard] },
+  { path: 'DeleteProperty', component: PropertydeleteComponent, canActivate: [AdminGuard, UserGuard] },
+  { path: 'GetRepair', component: RepairsComponent, canActivate: [AdminGuard] },
+  { path: 'PostRepair', component: RepairpostComponent, canActivate: [AdminGuard] },
+  { path: 'PutRepair', component: RepairputComponent, canActivate: [AdminGuard, UserGuard] },
+  { path: 'DeleteRepair', component: RepairdeleteComponent, canActivate: [AdminGuard,UserGuard] },
+  { path: 'UserSearch', component: UserSearchComponent, canActivate: [AdminGuard] },
+  { path: 'PropertySearch', component: PropertySearchComponent, canActivate: [AdminGuard] },
+  { path: 'RepairSearch', component: RepairSearchComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', component: NotfoundComponent },
   { path: 'login', component: LoginComponent }

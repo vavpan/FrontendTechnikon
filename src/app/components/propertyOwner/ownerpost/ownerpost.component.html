@@ -36,6 +36,14 @@
     <input [(ngModel)]="password" name="password" type="text" class="form-control" id="password"
       placeholder="Enter password">
   </div>
+
+  <div class="form-group">
+    <label for="role">Role</label>
+    <select [(ngModel)]="role" name="role" id="role" class="custom-select">
+      <option value="ADMIN">ADMIN</option>
+      <option value="USER">USER</option>
+   </select>
+</div>
   <button (click)="postOwner()">Post Data</button>
 
 

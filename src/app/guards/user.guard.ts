@@ -5,17 +5,17 @@ import { AuthenticationService } from '../services/authentication/Authentication
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationGuard implements CanActivate {
+export class UserGuard implements CanActivate {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
   ) {}
 
   canActivate(): boolean {
-    if (this.authenticationService.isAuthenticated()) {
+    if (this.authenticationService.isAuthenticated() && this.authenticationService.role === 'USER') {
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
       return false;
     }
   }

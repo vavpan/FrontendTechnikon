@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -14,6 +13,7 @@ export class AuthenticationService {
   private baseUrl = 'http://localhost:8080/WebTechnikonProject/resources/loginResource/login';
 
   currentUser!: string;
+  role!: string;
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +26,7 @@ export class AuthenticationService {
         if (response) {
           localStorage.setItem("authenticated", "true");
           this.currentUser = username;
+          this.role = response.role; //set the user role
           return true;
         } else {
           return false;

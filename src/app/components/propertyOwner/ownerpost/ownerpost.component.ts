@@ -17,6 +17,7 @@ export class OwnerpostComponent implements OnInit {
   email!: string;
   username!: string;
   password!: string;
+  role!: string;
   response: any;
 
   constructor(private service: OwnersService) { }
@@ -34,7 +35,8 @@ export class OwnerpostComponent implements OnInit {
       phoneNumber: this.phoneNumber,
       email: this.email,
       username: this.username,
-      password: this.password
+      password: this.password,
+      role: this.role
     }
     this.service.post(data).subscribe({
       next: data => this.response = data
