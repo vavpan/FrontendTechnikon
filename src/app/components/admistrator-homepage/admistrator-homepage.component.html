@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Acceptance</th>
+        <th>ActualStartDate</th>
+        <th>ActualEndDate</th>
+        <th>Cost</th>
+        <th>Repair Description</th>
+        <th>Repair Status</th>
+        <th>Repair Type</th>
+        <th>StartDate</th>
+        <th>SubmissionDate</th>
+        <th>WorkDescription</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repair of repairData">
+        <td>{{repair.id}}</td>
+        <td>{{repair.acceptance}}</td>
+        <td>{{repair.actualStartDate}}</td>
+        <td>{{repair.actualEndDate}}</td>
+        <td>{{repair.cost}}</td>
+        <td>{{repair.repairDescription}}</td>
+        <td>{{repair.repairStatus}}</td>
+        <td>{{repair.repairType}}</td>
+        <td>{{repair.startDate}}</td>
+        <td>{{repair.submissionDate}}</td>
+        <td>{{repair.workDescription}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

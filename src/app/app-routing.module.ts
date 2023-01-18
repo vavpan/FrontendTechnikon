@@ -1,3 +1,4 @@
+import { AdmistratorHomepageComponent } from './components/admistrator-homepage/admistrator-homepage.component';
 import { NotfoundComponent } from './components/status/notfound/notfound.component';
 import { OwnersComponent } from './components/propertyOwner/ownersget/owners.component';
 import { HomeComponent } from './components/home/home/home.component';
@@ -26,19 +27,20 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [                                   
   { path: 'home', component: HomeComponent , canActivate: [AllowAllGuard]},
+  { path: 'admin-homepage', component: AdmistratorHomepageComponent , canActivate: [AdminGuard]},
   { path: 'self-registration', component: SelfRegistrationComponent, canActivate: [AllowAllGuard]},
   { path: 'GetOwners', component: OwnersComponent, canActivate: [AdminGuard] },
   { path: 'OwnerPost', component: OwnerpostComponent, canActivate: [AdminGuard] },
-  { path: 'OwnerPut', component: OwnerputComponent, canActivate: [AdminGuard, UserGuard] },
-  { path: 'OwnerDelete', component: OwnerdeleteComponent, canActivate: [AdminGuard, UserGuard]},
+  { path: 'OwnerPut', component: OwnerputComponent, canActivate: [AdminGuard,UserGuard] },
+  { path: 'OwnerDelete', component: OwnerdeleteComponent, canActivate: [AllowAllGuard,UserGuard]},
   { path: 'GetProperty', component: PropertyComponent, canActivate: [AdminGuard] },
   { path: 'PostProperty', component: PropertypostComponent, canActivate: [AdminGuard] },
-  { path: 'PutProperty', component: PropertyputComponent, canActivate: [AdminGuard, UserGuard] },
-  { path: 'DeleteProperty', component: PropertydeleteComponent, canActivate: [AdminGuard, UserGuard] },
+  { path: 'PutProperty', component: PropertyputComponent, canActivate: [AdminGuard,UserGuard] },
+  { path: 'DeleteProperty', component: PropertydeleteComponent, canActivate: [AdminGuard,UserGuard] },
   { path: 'GetRepair', component: RepairsComponent, canActivate: [AdminGuard] },
   { path: 'PostRepair', component: RepairpostComponent, canActivate: [AdminGuard] },
-  { path: 'PutRepair', component: RepairputComponent, canActivate: [AdminGuard, UserGuard] },
-  { path: 'DeleteRepair', component: RepairdeleteComponent, canActivate: [AdminGuard,UserGuard] },
+  { path: 'PutRepair', component: RepairputComponent, canActivate: [AdminGuard,UserGuard] },
+  { path: 'DeleteRepair', component: RepairdeleteComponent, canActivate: [AllowAllGuard,UserGuard] },
   { path: 'UserSearch', component: UserSearchComponent, canActivate: [AdminGuard] },
   { path: 'PropertySearch', component: PropertySearchComponent, canActivate: [AdminGuard] },
   { path: 'RepairSearch', component: RepairSearchComponent, canActivate: [AdminGuard] },

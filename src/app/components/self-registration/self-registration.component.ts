@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './self-registration.component.html',
   styleUrls: ['./self-registration.component.scss']
 })
-export class SelfRegistrationComponent implements OnInit{
-  
+export class SelfRegistrationComponent implements OnInit {
+
   vat!: number;
   name!: string;
   surname!: string;
@@ -17,14 +17,15 @@ export class SelfRegistrationComponent implements OnInit{
   username!: string;
   password!: string;
   role!: string;
+  responseMessage!: string;
   response: any;
 
-  constructor(private service: OwnersService){}
-  
+  constructor(private service: OwnersService) { }
+
   ngOnInit(): void {
   }
 
-  registerOwner(){
+  registerOwner() {
     const data = {
       vat: this.vat,
       name: this.name,
@@ -37,9 +38,15 @@ export class SelfRegistrationComponent implements OnInit{
       role: this.role
     }
     this.service.post(data).subscribe({
-      next: data => this.response = data
+      next: data => {
+        this.response = data;
+        this.responseMessage = "Post request was successful";
+      },
+      error: error => {
+        this.responseMessage = "Post request failed: " + error;
+      }
     });
-}
+  }
 
 
 

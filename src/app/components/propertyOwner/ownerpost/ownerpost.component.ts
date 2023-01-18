@@ -19,7 +19,8 @@ export class OwnerpostComponent implements OnInit {
   password!: string;
   role!: string;
   response: any;
-
+  responseMessage!: string;
+  
   constructor(private service: OwnersService) { }
 
   ngOnInit(): void {
@@ -39,7 +40,13 @@ export class OwnerpostComponent implements OnInit {
       role: this.role
     }
     this.service.post(data).subscribe({
-      next: data => this.response = data
+      next: data => {
+        this.response = data;
+        this.responseMessage = "Post request was successful";
+      },
+      error: error => {
+        this.responseMessage = "Post request failed: " + error;
+      }
     });
   }
 }

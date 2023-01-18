@@ -32,8 +32,7 @@ export class RepairSearchComponent implements OnInit {
           this.response = data;
           this.loading = false;
           this.repairData = this.response.data ? [this.response.data] : this.response;
-          this.submissionDate = ' ';
-          this.ownerId = 0;
+  
         },
         error: er => this.message = "Error" + er.message,
         complete: () => this.message = "Completed..."
@@ -44,8 +43,7 @@ export class RepairSearchComponent implements OnInit {
           this.response = data;
           this.loading = false;
           this.repairData = this.response.data ? [this.response.data] : this.response;
-          this.submissionDate = ' ';
-          this.ownerId = 0;
+     
         },
         error: er => this.message = "Error" + er.message,
         complete: () => this.message = "Completed..."

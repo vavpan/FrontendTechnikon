@@ -13,6 +13,7 @@ export class PropertypostComponent implements OnInit {
   yearOfConstruction!: string;
   propertyType!: string;
   response: any;
+  responseMessage!: string;
 
   constructor(private service: PropertyService) {
 
@@ -31,7 +32,13 @@ export class PropertypostComponent implements OnInit {
       propertyType: this.propertyType
     }
     this.service.post(data).subscribe({
-      next: data => this.response = data
+      next: data => {
+        this.response = data;
+        this.responseMessage = "Post request was successful";
+      },
+      error: error => {
+        this.responseMessage = "Post request failed: " + error;
+      }
     });
   }
 

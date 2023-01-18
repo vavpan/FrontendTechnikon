@@ -18,6 +18,5 @@
         placeholder="Enter Property Type">
     </div>
     <button (click)="postProperty()">Post Data</button>
-  
-  
+    <div *ngIf="responseMessage">{{responseMessage}}</div>
   </form>

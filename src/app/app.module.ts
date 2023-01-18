@@ -28,6 +28,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { NotfoundComponent } from './components/status/notfound/notfound.component';
 import { SelfRegistrationComponent } from './components/self-registration/self-registration.component';
+import { AdmistratorHomepageComponent } from './components/admistrator-homepage/admistrator-homepage.component';
+import { RepairsPageComponent } from './components/repairs-page/repairs-page.component';
+import { PropertyownersPropertiesPageComponent } from './components/propertyowners-properties-page/propertyowners-properties-page.component';
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import { SelfRegistrationComponent } from './components/self-registration/self-r
     PropertySearchComponent,
     RepairSearchComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdmistratorHomepageComponent,
+    RepairsPageComponent,
+    PropertyownersPropertiesPageComponent
   ],
   imports: [
     BrowserModule,
