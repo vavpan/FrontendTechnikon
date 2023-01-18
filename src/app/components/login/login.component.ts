@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user/user-service.service';
 import { AuthenticationService } from 'src/app/services/authentication/AuthenticationService';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit{
 
 
   loginUserData = {}
-  constructor(private fb: FormBuilder, private router: Router, private authenticationService: AuthenticationService){
+  constructor(private fb: FormBuilder, private router: Router, private authenticationService: AuthenticationService, private userService: UserService){
 
   }   
 
@@ -30,27 +31,21 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
     if (this.loginForm.valid) {
-      let credentials = this.getCredentials();
-      // Check if username and password are present in local storage
-      if (localStorage.getItem('username') === credentials.username && localStorage.getItem('password') === credentials.password) {
-        this.router.navigate(['home']);
-      } else {
+        let credentials = this.getCredentials();
         this.authenticationService.login(credentials.username, credentials.password)
-          .subscribe(response => {
+        .subscribe(response => {
             if (response) {
-              localStorage.setItem('username', credentials.username);
-              localStorage.setItem('password', credentials.password);
-              this.router.navigate(['home']);
+                this.userService.setCurrentUser(credentials.username);
+                this.router.navigate(['home']);
             } else {
-              alert("Wrong credentials");
+                alert("Wrong credentials");
             }
-          }, error => {
+        }, error => {
             console.log(error);
             alert("An error occurred, please try again later.");
-          });
-      }
+        });
     }
-  }
+}
 
   private getCredentials(): any {
     return {

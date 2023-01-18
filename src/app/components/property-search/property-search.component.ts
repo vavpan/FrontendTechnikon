@@ -52,7 +52,7 @@ export class PropertySearchComponent implements OnInit {
             },
             error: er => this.message = "Error" + er.message,
             complete: () => this.message = "Completed..."
-        });
+        }); 
     } else {
         this.message = 'Please enter a property ID or VAT to search.';
     }
