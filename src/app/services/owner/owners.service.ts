@@ -132,4 +132,36 @@ export class OwnersService {
 
 
 
+  // USER DETAILS IN HOMEPAGE 
+
+  getByPropertiesByVat(vat: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/properties/ownerVat/${vat}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  getByOwnerId(ownerId: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairs/owner/${ownerId}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
 }

@@ -14,6 +14,8 @@ export class AuthenticationService {
 
   currentUser!: string;
   role!: string;
+  id!: number;
+  vat!: number;
 
   constructor(private http: HttpClient) { }
 
@@ -27,8 +29,14 @@ export class AuthenticationService {
           localStorage.setItem("username", username);
           localStorage.setItem("password", password);
           localStorage.setItem("role", response.role); //set the user role in local storage
+          localStorage.setItem("id", response.id);
+          localStorage.setItem("vat", response.vat);
+
           this.currentUser = username;
           this.role = response.role; 
+          this.id = response.id;
+          this.vat = response.vat;
+          console.log(this.id);
           return true;
         } else {
           return false;

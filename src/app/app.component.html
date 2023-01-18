@@ -9,6 +9,7 @@
       <button mat-menu-item routerLink="/OwnerPost">Post owner</button>
       <button mat-menu-item routerLink="/OwnerPut">Put owner</button>
       <button mat-menu-item routerLink="/OwnerDelete">Delete owner</button>
+
     </mat-menu>
     
     <button mat-button [matMenuTriggerFor]="propertyMenu">Property</button>
@@ -34,6 +35,12 @@
       <button mat-menu-item routerLink="/RepairSearch">Repair Search</button>
     </mat-menu>
 
+    <button mat-button [matMenuTriggerFor]="details">User Details</button>
+    <mat-menu #details="matMenu">
+    <button mat-menu-item routerLink="/user-details">User details</button>
+    <button mat-menu-item routerLink="/user-property-details">User Property Details</button>
+    <button mat-menu-item routerLink="/user-repair-details">User Repair Details</button>
+  </mat-menu>
     <li class="nav-item"><a class="logout" (click)="logout()">Logout</a></li>
   </ul>
 </nav>

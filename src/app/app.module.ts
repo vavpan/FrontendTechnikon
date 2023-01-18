@@ -31,6 +31,9 @@ import { SelfRegistrationComponent } from './components/self-registration/self-r
 import { AdmistratorHomepageComponent } from './components/admistrator-homepage/admistrator-homepage.component';
 import { RepairsPageComponent } from './components/repairs-page/repairs-page.component';
 import { PropertyownersPropertiesPageComponent } from './components/propertyowners-properties-page/propertyowners-properties-page.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserPropertyDetailsComponent } from './components/user-property-details/user-property-details.component';
+import { UserRepairDetailsComponent } from './components/user-repair-details/user-repair-details.component';
 
 
 @NgModule({
@@ -58,7 +61,11 @@ import { PropertyownersPropertiesPageComponent } from './components/propertyowne
     HeaderComponent,
     AdmistratorHomepageComponent,
     RepairsPageComponent,
-    PropertyownersPropertiesPageComponent
+    PropertyownersPropertiesPageComponent,
+    UserDetailsComponent,
+    UserPropertyDetailsComponent,
+    UserRepairDetailsComponent
+
   ],
   imports: [
     BrowserModule,
