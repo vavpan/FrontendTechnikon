@@ -1,5 +1,7 @@
+import { PropertyService } from './../../services/property/properties.service';
 import { OwnersService } from 'src/app/services/owner/owners.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-property-details',
@@ -15,9 +17,15 @@ export class UserPropertyDetailsComponent implements OnInit {
   propertyData: any[] = [];
   vat!: any;
 
-  constructor(private service: OwnersService) {
-     this.vat = localStorage.getItem("vat");
-     this.getOwnerDetails();
+  propertyId!: number;
+  e9!: number;
+  address!: string;
+  yearOfConstruction!: string;
+  propertyType!: string;
+
+  constructor(private service: OwnersService, private propertyService: PropertyService,private router: Router) {
+    this.vat = localStorage.getItem("vat");
+    this.getOwnerDetails();
   }
 
   ngOnInit(): void {
@@ -38,5 +46,22 @@ export class UserPropertyDetailsComponent implements OnInit {
     });
   }
 
+  deleteProperty(id: number) {
+    this.propertyService.delete(id).subscribe(
+      data => {
+        console.log("DELETE request is successful ", data);
+        this.message = 'Deleted successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error deleting: ' + error.message;
+      }
+    );
+  }
 
+  onUpdateProperty(id: number) {
+    this.router.navigate(['/update-property', id]);
+  }
 }
+
+

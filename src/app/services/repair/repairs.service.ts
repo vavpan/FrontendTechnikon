@@ -82,8 +82,7 @@ export class RepairService {
       .set('Content-Type', 'application/json')
       .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
-
-    return this.http.post(url, JSON.stringify(data), { headers: headers })
+    return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
         catchError(error => throwError(() => 'Something is wrong...'))
@@ -91,7 +90,7 @@ export class RepairService {
   }
 
   put(id: number, data: any) {
-    const url = 'http://localhost:8080/WebTechnikonProject/resources/repairResource/repair/${id}';
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repair/${id}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()

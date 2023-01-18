@@ -1,0 +1,26 @@
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display:block;
+    margin-right:20px;
+  }
+  a:hover {
+    color: #0056b3;
+  }
+  
+  /* specific styling for the "Update User" link */
+  a[routerLink='/update-myuser'] {
+      color: #d0ff00;
+      font-size: 1.2em;
+      margin-right: 20px;
+      float:right;
+  }
+  
+  /* specific styling for the "Delete my account" link */
+  a[routerLink='/delete-myuser'] {
+      color: #ff5722;
+      font-size: 1.2em;
+      float:right;
+  }
+  

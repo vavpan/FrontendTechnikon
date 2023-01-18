@@ -34,6 +34,10 @@ import { PropertyownersPropertiesPageComponent } from './components/propertyowne
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserPropertyDetailsComponent } from './components/user-property-details/user-property-details.component';
 import { UserRepairDetailsComponent } from './components/user-repair-details/user-repair-details.component';
+import { DeleteUserComponent } from './components/user-details/delete-user/delete-user/delete-user.component';
+import { UpdateUserComponent } from './components/user-details/update-user/update-user/update-user.component';
+import { UpdateMyPropertyComponent } from './components/user-property-details/update-my-property/update-my-property.component';
+import { UpdateMyRepairComponent } from './components/user-repair-details/update-my-repair/update-my-repair.component';
 
 
 @NgModule({
@@ -64,7 +68,11 @@ import { UserRepairDetailsComponent } from './components/user-repair-details/use
     PropertyownersPropertiesPageComponent,
     UserDetailsComponent,
     UserPropertyDetailsComponent,
-    UserRepairDetailsComponent
+    UserRepairDetailsComponent,
+    DeleteUserComponent,
+    UpdateUserComponent,
+    UpdateMyPropertyComponent,
+    UpdateMyRepairComponent
 
   ],
   imports: [

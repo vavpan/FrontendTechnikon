@@ -96,7 +96,7 @@ export class OwnersService {
   }
 
   put(id: number, data: any) {
-    const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/${id}`;
+    const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/update/${id}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()

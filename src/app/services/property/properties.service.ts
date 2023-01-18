@@ -90,7 +90,7 @@ export class PropertyService {
   }
 
   put(id: number, data: any) {
-    const url = 'http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${id}';
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${id}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()

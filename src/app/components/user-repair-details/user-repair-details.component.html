@@ -27,6 +27,12 @@
             <td>{{data.startDate}}</td>
             <td>{{data.submissionDate}}</td>
             <td>{{data.workDescription}}</td>
+
+            <td>
+                <button class="update-button" (click)="onUpdateRepair(data.id)">Update</button>
+                <button class="delete-button" (click)="deleteRepair(data.id)">Delete</button>
+                
+              </td>
         </tr>
     </tbody>
 

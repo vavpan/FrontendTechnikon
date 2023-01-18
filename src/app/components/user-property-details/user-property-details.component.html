@@ -16,6 +16,11 @@
             <td>{{data.e9}}</td>
             <td>{{data.yearOfConstruction}}</td>
             <td>{{data.propertyType}}</td>
+            <td>
+                <button class="update-button" (click)="onUpdateProperty(data.id)">Update</button>
+                <button class="delete-button" (click)="deleteProperty(data.id)">Delete</button>
+                
+              </td>
         </tr>
     </tbody>
 </table>

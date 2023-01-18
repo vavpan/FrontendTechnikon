@@ -62,4 +62,8 @@ export class AuthenticationService {
     return this.currentUser;
 }
 
+isAdmin(): boolean {
+  return localStorage.getItem('role') === 'ADMIN';
+}
+
 }

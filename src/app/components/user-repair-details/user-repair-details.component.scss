@@ -1,0 +1,25 @@
+.update-button {
+    background-color: #ffa500; /* orange color */
+}
+
+.delete-button {
+    background-color: #ff0000; /* red color */
+}
+
+td button:first-child{
+    /* select the first button */
+    background-color: #ffa500; /* orange color */
+}
+
+td button:last-child{
+    /* select the last button */
+    background-color: #ff0000; /* red color */
+}
+td button{
+    /* styles for all buttons */
+    padding: 8px 20px; /* add some padding */
+    border-radius: 3px; /* round the button's corners */
+    font-weight: bold; /* make the text bold */
+    transition: all 0.2s ease-in-out; /* add a smooth transition effect */
+}
+

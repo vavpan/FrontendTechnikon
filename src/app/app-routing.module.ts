@@ -1,3 +1,7 @@
+import { UpdateMyRepairComponent } from './components/user-repair-details/update-my-repair/update-my-repair.component';
+import { UpdateMyPropertyComponent } from './components/user-property-details/update-my-property/update-my-property.component';
+import { UpdateUserComponent } from './components/user-details/update-user/update-user/update-user.component';
+import { DeleteUserComponent } from './components/user-details/delete-user/delete-user/delete-user.component';
 import { UserRepairDetailsComponent } from './components/user-repair-details/user-repair-details.component';
 import { UserPropertyDetailsComponent } from './components/user-property-details/user-property-details.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
@@ -28,17 +32,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 
-const routes: Routes = [                                   
-  { path: 'home', component: HomeComponent , canActivate: [AllowAllGuard]},
-  { path: 'admin-homepage', component: AdmistratorHomepageComponent , canActivate: [AdminGuard]},
-  { path: 'user-details', component: UserDetailsComponent , canActivate: [AllowAllGuard]},
-  { path: 'user-property-details', component: UserPropertyDetailsComponent , canActivate: [AllowAllGuard]},
-  { path: 'user-repair-details', component: UserRepairDetailsComponent , canActivate: [AllowAllGuard]},
-  { path: 'self-registration', component: SelfRegistrationComponent, canActivate: [AllowAllGuard]},
-  { path: 'GetOwners', component: OwnersComponent, canActivate: [AllowAllGuard] },
-  { path: 'OwnerPost', component: OwnerpostComponent, canActivate: [UserGuard] },
-  { path: 'OwnerPut', component: OwnerputComponent, canActivate: [UserGuard] },
-  { path: 'OwnerDelete', component: OwnerdeleteComponent, canActivate: [UserGuard]},
+const routes: Routes = [
+  { path: 'home', component: HomeComponent, canActivate: [AllowAllGuard] },
+  { path: 'admin-homepage', component: AdmistratorHomepageComponent, canActivate: [AdminGuard] },
+  { path: 'user-details', component: UserDetailsComponent, canActivate: [UserGuard] },
+  { path: 'user-property-details', component: UserPropertyDetailsComponent, canActivate: [UserGuard] },
+  { path: 'user-repair-details', component: UserRepairDetailsComponent, canActivate: [UserGuard] },
+  { path: 'delete-myuser', component: DeleteUserComponent, canActivate: [UserGuard]},
+  { path: 'update-myuser', component: UpdateUserComponent, canActivate: [UserGuard]},
+  { path: 'self-registration', component: SelfRegistrationComponent, canActivate: [AllowAllGuard] },
+  { path: 'GetOwners', component: OwnersComponent, canActivate: [AdminGuard] },
+  { path: 'OwnerPost', component: OwnerpostComponent, canActivate: [AdminGuard] },
+  { path: 'OwnerPut', component: OwnerputComponent, canActivate: [AdminGuard] },
+  { path: 'OwnerDelete', component: OwnerdeleteComponent, canActivate: [AdminGuard] },
   { path: 'GetProperty', component: PropertyComponent, canActivate: [AdminGuard] },
   { path: 'PostProperty', component: PropertypostComponent, canActivate: [AdminGuard] },
   { path: 'PutProperty', component: PropertyputComponent, canActivate: [AdminGuard] },
@@ -50,6 +56,9 @@ const routes: Routes = [
   { path: 'UserSearch', component: UserSearchComponent, canActivate: [AdminGuard] },
   { path: 'PropertySearch', component: PropertySearchComponent, canActivate: [AdminGuard] },
   { path: 'RepairSearch', component: RepairSearchComponent, canActivate: [AdminGuard] },
+  { path: 'administrator-homepage', component: AdmistratorHomepageComponent, canActivate: [AdminGuard] },
+  { path: 'update-property/:id', component: UpdateMyPropertyComponent },
+  { path: 'update-repair/:id', component: UpdateMyRepairComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', component: NotfoundComponent },
   { path: 'login', component: LoginComponent }
