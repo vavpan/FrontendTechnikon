@@ -12,11 +12,12 @@ export class UserGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    if (this.authenticationService.isAuthenticated() && this.authenticationService.role === 'USER') {
+    if (this.authenticationService.isAuthenticated() && localStorage.getItem('role') === 'USER') {
       return true;
     } else {
       this.router.navigate(['/home']);
       return false;
     }
   }
+
 }

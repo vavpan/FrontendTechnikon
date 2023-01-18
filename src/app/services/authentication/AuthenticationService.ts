@@ -24,9 +24,11 @@ export class AuthenticationService {
     return this.http.post<any>(this.baseUrl, {}, { headers }).pipe(
       map(response => {
         if (response) {
-          localStorage.setItem("authenticated", "true");
+          localStorage.setItem("username", username);
+          localStorage.setItem("password", password);
+          localStorage.setItem("role", response.role); //set the user role in local storage
           this.currentUser = username;
-          this.role = response.role; //set the user role
+          this.role = response.role; 
           return true;
         } else {
           return false;
@@ -38,7 +40,7 @@ export class AuthenticationService {
   }
 
   isAuthenticated(): boolean {
-    if (localStorage.getItem('username') && localStorage.getItem('password')) {
+    if (localStorage.getItem('username') && localStorage.getItem('password') && localStorage.getItem('role')) {
       return true;
     }
     return false;

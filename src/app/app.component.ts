@@ -12,19 +12,22 @@ export class AppComponent implements OnInit {
   title = 'frontTechnikon';
 
 
-  constructor(private userService: UserService, public authenticationService: AuthenticationService, private router: Router) {
+  constructor(public authenticationService: AuthenticationService, private router: Router) {
 
 
   }
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit() {
+    if (this.authenticationService.isAuthenticated()) {
+        this.router.navigate(['/home']);
+    }
+}
 
   logout() {
     localStorage.removeItem('authenticated');
     localStorage.removeItem('username');
-    this.userService.setCurrentUser('');
     this.router.navigate(['/login']);
   }
+
+
 }

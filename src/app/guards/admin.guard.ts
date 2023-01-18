@@ -12,7 +12,7 @@ export class AdminGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    if (this.authenticationService.isAuthenticated() && this.authenticationService.role === 'ADMIN') {
+    if (this.authenticationService.isAuthenticated() && localStorage.getItem('role') === 'ADMIN') {
       return true;
     } else {
       this.router.navigate(['/home']);
