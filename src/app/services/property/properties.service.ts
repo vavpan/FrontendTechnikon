@@ -28,8 +28,8 @@ export class PropertyService {
       );
   }
 
-  getByVat(vat: number) {
-    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/properties/ownerVat/${vat}`;
+  getByVat(ownerVat: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/properties/ownerVat/${ownerVat}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()

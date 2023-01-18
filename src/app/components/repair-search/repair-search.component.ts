@@ -31,7 +31,7 @@ export class RepairSearchComponent implements OnInit {
         next: data => {
           this.response = data;
           this.loading = false;
-          this.repairData = [this.response.data];
+          this.repairData = this.response.data ? [this.response.data] : this.response;
           this.submissionDate = ' ';
           this.ownerId = 0;
         },
@@ -43,7 +43,7 @@ export class RepairSearchComponent implements OnInit {
         next: data => {
           this.response = data;
           this.loading = false;
-          this.repairData = [this.response.data];
+          this.repairData = this.response.data ? [this.response.data] : this.response;
           this.submissionDate = ' ';
           this.ownerId = 0;
         },

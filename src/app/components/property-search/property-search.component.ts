@@ -12,8 +12,8 @@ export class PropertySearchComponent implements OnInit {
   loading = false;
   message = '';
   propertyData: any[] = [];
-  vat!: number;
-  e9!: number;
+  ownerVat!: number;
+  propertyId!: number;
 
 
   constructor(private service: PropertyService) { 
@@ -26,36 +26,37 @@ export class PropertySearchComponent implements OnInit {
 
 
 
-  searchProperty(vat: number, e9: number) {
-          
+  searchProperty() {
     this.loading = true;
-    if(vat){
-      this.service.getByVat(vat).subscribe({
-        next:data => {
-          this.response = data;
-          this.loading = false;
-          this.propertyData = [this.response.data];
-          this.vat = 0;
-          this.e9 = 0;
-        },
-        error: er => this.message = "Error" + er.message,
-        complete: () => this.message = "Completed..."
-      });
-    } else if (e9){
-      this.service.getByE9(e9).subscribe({
-        next : data => {
-          this.response = data;
-          this.loading = false;
-          this.propertyData = [this.response];
-          this.vat = 0;
-          this.e9 = 0;
-        },
-        error: er => this.message = "Error" + er.message,
-        complete: () => this.message = "Completed..."
-      })
+
+    if (this.propertyId) {
+        this.service.get(this.propertyId).subscribe({
+            next: data => {
+                this.response = data;
+                this.loading = false;
+                console.log(this.response);
+                this.propertyData = this.response.data ? [this.response.data] : this.response;
+                console.log(this.propertyData);
+            },
+            error: er => this.message = "Error" + er.message,
+            complete: () => this.message = "Completed..."
+        });
+    } else if (this.ownerVat) {
+        this.service.getByVat(this.ownerVat).subscribe({
+            next: data => {
+                this.response = data;
+                this.loading = false;
+                console.log(this.response);
+                this.propertyData = this.response.data ? [this.response.data] : this.response;
+                console.log(this.propertyData);
+            },
+            error: er => this.message = "Error" + er.message,
+            complete: () => this.message = "Completed..."
+        });
+    } else {
+        this.message = 'Please enter a property ID or VAT to search.';
     }
 }
 
 
-
-}
+  }
