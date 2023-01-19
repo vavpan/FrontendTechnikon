@@ -60,7 +60,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'update-property/:id', component: UpdateMyPropertyComponent, canActivate: [UserGuard] },
+  { path: 'update-repair/:id', component: UpdateMyRepairComponent, canActivate: [UserGuard] }
 ];
 
 
