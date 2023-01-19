@@ -44,3 +44,23 @@
   color: red;
   text-align: center;
   }
+
+  .update-repair-button {
+    /* button styles */
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+  .update-repair-button:hover {
+    /* hover styles */
+    background-color: #286090;
+    cursor: pointer;
+  }
+  
+  

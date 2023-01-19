@@ -78,7 +78,7 @@ export class RepairService {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repair`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
- const headers = new HttpHeaders()
+    const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
@@ -105,6 +105,60 @@ export class RepairService {
         catchError(error => throwError(() => 'Something is wrong...'))
       );
   }
+
+
+  putRepairType(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairType/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+
+  putRepairDescription(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repairDescription/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  putSubmissionDate(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/submissionDate/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
 
   delete(repairId: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/repairResource/repair/${repairId}`;

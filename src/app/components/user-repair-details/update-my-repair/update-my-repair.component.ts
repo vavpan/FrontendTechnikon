@@ -56,4 +56,54 @@ export class UpdateMyRepairComponent implements OnInit {
     });
   }
 
+  updateRepairType() {
+
+    const data = { repairType: this.repairType }
+
+    this.service.putRepairType(this.repairId, data.repairType).subscribe(
+      data => {
+        console.log("repairType update request is successful ", data);
+        this.message = 'repairType updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
+  updateRepairDescription() {
+
+    const data = { repairDescription: this.repairDescription }
+
+    this.service.putRepairDescription(this.repairId, data.repairDescription).subscribe(
+      data => {
+        console.log("repairDescription update request is successful ", data);
+        this.message = 'repairDescription updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
+  updateSubmissionDate() {
+
+    const data = { submissionDate : this.submissionDate }
+
+    this.service.putSubmissionDate(this.repairId, data.submissionDate).subscribe(
+      data => {
+        console.log("repairType update request is successful ", data);
+        this.message = 'repairType updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
+
+
 }

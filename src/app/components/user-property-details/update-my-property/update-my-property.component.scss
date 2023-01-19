@@ -26,21 +26,41 @@
   }
   
   .update-property-button {
-  width: 100%;
-  background-color: #ffae00;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    /* button styles */
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
   }
   
   .update-property-button:hover {
-  background-color: #45a049;
+    background-color: #286090;
+    cursor: pointer;
   }
   
   p {
   color: red;
   text-align: center;
   }
+  .quick-update-button {
+    /* add styles here */
+    font-size: 12px;
+    padding: 4px 8px;
+    margin-left: 10px;
+  }
+
+  .update-button {
+    width: 100%;
+    background-color: #ffae00;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }

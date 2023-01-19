@@ -105,6 +105,58 @@ export class PropertyService {
       );
   }
 
+
+  putAddress(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/updateAddress/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'text/plain')
+    .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  putYearOfConstruction(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/yearOfConstruction/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'text/plain')
+    .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  putPropertyType(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/updatePropertyType/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'text/plain')
+    .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+  
+
+
   delete(propertyId: number) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${propertyId}`;
     const username = localStorage.getItem('username');

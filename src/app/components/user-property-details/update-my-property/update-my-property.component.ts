@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './update-my-property.component.html',
   styleUrls: ['./update-my-property.component.scss']
 })
-export class UpdateMyPropertyComponent implements OnInit{
+export class UpdateMyPropertyComponent implements OnInit {
   propertyId!: number;
   e9!: number;
   address!: string;
@@ -16,8 +16,8 @@ export class UpdateMyPropertyComponent implements OnInit{
   response: any;
   message!: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: PropertyService) {}
-  
+  constructor(private route: ActivatedRoute, private router: Router, private service: PropertyService) { }
+
   ngOnInit(): void {
     this.propertyId = this.route.snapshot.params['id']
   }
@@ -36,14 +36,64 @@ export class UpdateMyPropertyComponent implements OnInit{
       yearOfConstruction: this.yearOfConstruction,
       propertyType: this.propertyType
     }
-   this.service.put(id,data).subscribe({
-    next: data => {
-      this.response = data;
-      this.message = 'Property updated successfully';
-    },
-    error: error => {
-      this.message = 'Error updating property: ' + error.message;
-    }
-  });
-}
+    this.service.put(id, data).subscribe({
+      next: data => {
+        this.response = data;
+        this.message = 'Property updated successfully';
+      },
+      error: error => {
+        this.message = 'Error updating property: ' + error.message;
+      }
+    });
+  }
+
+  updateAddress() {
+
+    const data = { address: this.address }
+
+    this.service.putAddress(this.propertyId, data.address).subscribe(
+      data => {
+        console.log("address update request is successful ", data);
+        this.message = 'address updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
+  updateYearOfConstruction() {
+
+    const data = { yearOfConstruction: this.yearOfConstruction }
+
+    this.service.putYearOfConstruction(this.propertyId, data.yearOfConstruction).subscribe(
+      data => {
+        console.log("yearOfConstruction update request is successful ", data);
+        this.message = 'yearOfConstruction updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
+  updatePropertyType() {
+
+    const data = { property: this.propertyType }
+
+    this.service.putYearOfConstruction(this.propertyId, data.property).subscribe(
+      data => {
+        console.log("property update request is successful ", data);
+        this.message = 'property updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
+
 }
