@@ -1,18 +1,32 @@
 .login-container {
-    width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 0px 20px #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
   
-  .login-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 2px 2px #000;
+}
+
   
   .form-group {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .form-control {
@@ -20,24 +34,34 @@
     border: none;
     padding: 10px;
     box-shadow: 0px 0px 10px #ddd;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease-in-out;
   }
+
+  .form-control:focus {
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0px 0px 10px #3f51b5;
+}
   
   .btn-primary {
     background-color: #1100ff;
     border-radius: 4px;
-    color: rgb(190, 219, 21);
+    color: #fff;
     font-size: 1.2rem;
     font-weight: 600;
     padding: 12px 24px;
     text-transform: uppercase;
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 0px 10px #1100ff;
 
   }
 
   .btn-primary:hover {
     background-color: #3300ff;
     cursor: pointer;
-    color: white;
+    color: #fff;
+    transform: scale(1.1);
     }
 
     
@@ -46,10 +70,15 @@ form {
   width: 300px;
   margin: 0 auto;
   padding: 2rem;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
+  box-shadow: 0px 0px 20px rgb(34, 201, 42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 label {
@@ -57,6 +86,7 @@ label {
   font-weight: bold;
   margin-bottom: 0.5rem;
   display: block;
+  color: #333;
 }
 
 input {
@@ -65,6 +95,8 @@ input {
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: rgba(223, 214, 214, 0.8);
+  transition: all 0.2s ease-in-out;
 }
 
 button[type="submit"] {
@@ -76,8 +108,50 @@ button[type="submit"] {
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px #3f51b5;
 }
 
 button[type="submit"]:hover {
   background-color: #6d4c41;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px #6d4c41;
+}
+
+a[routerLink='/self-registration'] {
+  text-decoration: none;
+  color: #0070C0;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 2px 2px #ffffff;
+  transition: all 0.2s ease-in-out;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px #db1414;
+}
+
+a[routerLink='/self-registration']:hover {
+  color: #1a1b19;
+  transform: scale(1.1);
+  box-shadow: 2px 2px 10px #23ff77;
+}
+
+.fa-user-plus {
+  font-size: 1.5em;
+  margin-right: 10px;
+  color: #3f51b5;
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-user-plus:hover {
+  color: #6d4c41;
+  transform: scale(1.1);
+}
+
+a:hover {
+  color: #00bcd4;
+}
+
+span {
+  margin-left: 50px;
 }
