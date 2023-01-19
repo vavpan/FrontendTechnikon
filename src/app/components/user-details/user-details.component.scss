@@ -11,7 +11,7 @@ a {
   
   /* specific styling for the "Update User" link */
   a[routerLink='/update-myuser'] {
-      color: #d0ff00;
+      color: #ffa500;
       font-size: 1.2em;
       margin-right: 20px;
       float:right;
@@ -19,7 +19,7 @@ a {
   
   /* specific styling for the "Delete my account" link */
   a[routerLink='/delete-myuser'] {
-      color: #ff5722;
+      color: #ff0000;
       font-size: 1.2em;
       float:right;
   }

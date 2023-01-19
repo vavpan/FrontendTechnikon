@@ -11,23 +11,17 @@ import { UserService } from './services/user/user-service.service';
 export class AppComponent implements OnInit {
   title = 'frontTechnikon';
 
-
-  constructor(public authenticationService: AuthenticationService, private router: Router) {
-
-
-  }
+  constructor(public authenticationService: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
-    if (this.authenticationService.isAuthenticated()) {
-        this.router.navigate(['/home']);
+    if (this.authenticationService.isAuthenticated() && localStorage.getItem('role') === 'ADMIN') {
+      this.router.navigate(['/administrator-homepage']);
     }
-}
+  }
 
   logout() {
     localStorage.removeItem('authenticated');
     localStorage.removeItem('username');
     this.router.navigate(['/login']);
   }
-
-
 }

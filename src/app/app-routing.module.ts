@@ -57,10 +57,9 @@ const routes: Routes = [
   { path: 'PropertySearch', component: PropertySearchComponent, canActivate: [AdminGuard] },
   { path: 'RepairSearch', component: RepairSearchComponent, canActivate: [AdminGuard] },
   { path: 'administrator-homepage', component: AdmistratorHomepageComponent, canActivate: [AdminGuard] },
-  { path: 'update-property/:id', component: UpdateMyPropertyComponent },
-  { path: 'update-repair/:id', component: UpdateMyRepairComponent },
+  { path: 'home', component: HomeComponent },
+
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  // { path: '**', component: NotfoundComponent },
   { path: 'login', component: LoginComponent }
 ];
 
