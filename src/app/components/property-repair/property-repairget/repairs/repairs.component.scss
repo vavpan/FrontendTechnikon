@@ -30,6 +30,16 @@ input[type=text] {
     width: 20%;
 }
 
+button:nth-of-type(1) {
+    /* The first button on the page */
+    background-color: #668146; /* or any other color of your choice */
+    color: #fff; /* text color should be white */
+    border: none; /* remove border */
+    padding: 10px 20px; /* adjust padding as needed */
+    font-size: 18px; /* adjust font size as needed */
+    cursor: pointer; /* change cursor to pointer on hover */
+}
+
 table {
     border-collapse: collapse;
     width: 100%;

@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
+  background: linear-gradient(to right, #3d5af1, #a6b1e1);
 }
 
 .navbar button {
@@ -70,6 +71,9 @@ footer {
   justify-content: space-between; /* distribute the elements inside the footer horizontally */
   align-items: center; /* align the elements inside the footer vertically */
   animation: slideUp 1s ease; /* add a slide up animation */
+  background: linear-gradient(to right, #1c2331, #0a0c2e);
+
+
 }
 
 /* Add a gradient background */
@@ -85,27 +89,6 @@ footer::before {
 
 
 
-/* Add hover effect to links */
-footer a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-footer a:hover {
-  color: #ff7e5f;
-}
-
-/* Add hover effect to icons */
-footer i {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  transition: transform 0.2s ease;
-}
-
-footer i:hover {
-  transform: rotate(360deg);
-}
 
 /* Keyframes for the slide up animation */
 @keyframes slideUp {

@@ -24,19 +24,25 @@ input {
   border-radius: 5px;
 }
 
-button[type="submit"] {
-  background-color: #3f51b5;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
+button {
+  padding: 10px 20px; /* Add some padding to the button */
+  border: none; /* Remove the border */
+  border-radius: 5px; /* Add some rounded edges */
+  background-color: #007bff; /* Add a background color */
+  color: #fff; /* Change the text color to white */
+  font-size: 16px; /* Increase the font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  transition: all 0.2s; /* Add a smooth transition */
 }
 
-button[type="submit"]:hover {
-  background-color: #6d4c41;
+button:hover {
+  background-color: #0069d9; /* Change the background color on hover */
+  transform: scale(1.1); /* Scale the button up on hover */
 }
+
+button:active {
+  transform: scale(0.95); /* Scale the button down on active */
+}
+
 
 /* Self-Registration Link */
