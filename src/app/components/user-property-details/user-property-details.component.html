@@ -19,7 +19,7 @@
             <td>
                 <button class="update-button" (click)="onUpdateProperty(data.id)">Update</button>
                 <button class="delete-button" (click)="deleteProperty(data.id)">Delete</button>
-                
+                <div *ngIf="message">{{ message }}</div>
               </td>
         </tr>
     </tbody>

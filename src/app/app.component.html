@@ -1,58 +1,52 @@
-<!-- Navbar -->
 <nav class="navbar" *ngIf="authenticationService.isAuthenticated()">
   <ul class="navbar-nav">
-    
-    <!-- <li class="nav-item"><a routerLink="/home">Home</a></li> -->
+    <ng-container *ngIf="!authenticationService.isAdmin()">
+      <button mat-button routerLink="/home">Home</button>    </ng-container>
+    <ng-container *ngIf="authenticationService.isAdmin()">
+      <button mat-button [matMenuTriggerFor]="adminMenu">Administrator</button>
+      <mat-menu #adminMenu="matMenu">
+        <button mat-menu-item routerLink="/administrator-homepage">Administrator Homepage</button>
+        <button mat-menu-item [matMenuTriggerFor]="propertyOwnerMenu">Property Owner</button>
+        <mat-menu #propertyOwnerMenu="matMenu">
+          <button mat-menu-item routerLink="/GetOwners">Get Owner</button>
+          <button mat-menu-item routerLink="/OwnerPost">Post owner</button>
+          <button mat-menu-item routerLink="/OwnerPut">Put owner</button>
+          <button mat-menu-item routerLink="/OwnerDelete">Delete owner</button>
+        </mat-menu>
+        <button mat-menu-item [matMenuTriggerFor]="propertyMenu">Property</button>
+        <mat-menu #propertyMenu="matMenu">
+          <button mat-menu-item routerLink="/GetProperty">Get Property</button>
+          <button mat-menu-item routerLink="/PostProperty">Post Property</button>
+          <button mat-menu-item routerLink="/PutProperty">Put Property</button>
+          <button mat-menu-item routerLink="/DeleteProperty">Delete Property</button>
+        </mat-menu>
+        <button mat-menu-item [matMenuTriggerFor]="repairsPageMenu">Repairs Page</button>
+        <mat-menu #repairsPageMenu="matMenu">
+          <button mat-menu-item routerLink="/GetRepair">Get Repair</button>
+          <button mat-menu-item routerLink="/PostRepair">Post Repair</button>
+          <button mat-menu-item routerLink="/PutRepair">Put Repair</button>
+          <button mat-menu-item routerLink="/DeleteRepair">Delete Repair</button>
+        </mat-menu>
+        <button mat-menu-item [matMenuTriggerFor]="searchMenu">Search</button>
+        <mat-menu #searchMenu="matMenu">
+          <button mat-menu-item routerLink="/UserSearch">User Search</button>
+          <button mat-menu-item routerLink="/PropertySearch">Property Search</button>
+          <button mat-menu-item routerLink="/RepairSearch">Repair Search</button>
+        </mat-menu>
+      </mat-menu>
+    </ng-container>
+    <ng-container *ngIf="!authenticationService.isAdmin()">
+      <button mat-button [matMenuTriggerFor]="details">User Details</button>
+      <mat-menu #details="matMenu">
+        <button mat-menu-item routerLink="/user-details">User details</button>
+        <button mat-menu-item routerLink="/user-property-details">User Property Details</button>
+        <button mat-menu-item routerLink="/user-repair-details">User Repair Details</button>
+      </mat-menu>
+    </ng-container>
+    <button mat-button (click)="logout()"> Logout</button>
 
-    <button mat-button routerLink="/home"> Home</button>
 
-
-    <button mat-button [matMenuTriggerFor]="adminMenu">Administrator</button>
-    <mat-menu #adminMenu="matMenu">
-      <button mat-menu-item routerLink="/administrator-homepage">Administrator Homepage</button>
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="propertyOwnerMenu">Property Owner</button>
-    <mat-menu #propertyOwnerMenu="matMenu">
-      <button mat-menu-item routerLink="/GetOwners">Get Owner</button>
-      <button mat-menu-item routerLink="/OwnerPost">Post owner</button>
-      <button mat-menu-item routerLink="/OwnerPut">Put owner</button>
-      <button mat-menu-item routerLink="/OwnerDelete">Delete owner</button>
-
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="propertyMenu">Property</button>
-    <mat-menu #propertyMenu="matMenu">
-      <button mat-menu-item routerLink="/GetProperty">Get Property</button>
-      <button mat-menu-item routerLink="/PostProperty">Post Property</button>
-      <button mat-menu-item routerLink="/PutProperty">Put Property</button>
-      <button mat-menu-item routerLink="/DeleteProperty">Delete Property</button>
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="repairsPageMenu">Repairs Page</button>
-    <mat-menu #repairsPageMenu="matMenu">
-      <button mat-menu-item routerLink="/GetRepair">Get Repair</button>
-      <button mat-menu-item routerLink="/PostRepair">Post Repair</button>
-      <button mat-menu-item routerLink="/PutRepair">Put Repair</button>
-      <button mat-menu-item routerLink="/DeleteRepair">Delete Repair</button>
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="searchMenu">Search</button>
-    <mat-menu #searchMenu="matMenu">
-      <button mat-menu-item routerLink="/UserSearch">User Search</button>
-      <button mat-menu-item routerLink="/PropertySearch">Property Search</button>
-      <button mat-menu-item routerLink="/RepairSearch">Repair Search</button>
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="details">User Details</button>
-    <mat-menu #details="matMenu">
-      <button mat-menu-item routerLink="/user-details">User details</button>
-      <button mat-menu-item routerLink="/user-property-details">User Property Details</button>
-      <button mat-menu-item routerLink="/user-repair-details">User Repair Details</button>
-    </mat-menu>
-    <button mat-button ><a class="logout" (click)="logout()"> Logout</a></button>
   </ul>
-
 </nav>
 
 <!-- Main Content -->

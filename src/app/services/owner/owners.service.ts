@@ -81,19 +81,18 @@ export class OwnersService {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
-
-    const headers = new HttpHeaders()
+ const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
-
     return this.http.post(url, JSON.stringify(data), { headers: headers })
       .pipe(
         retry(1),
         catchError(error => throwError(() => 'Something is wrong...'))
       );
 
-  }
+
+}
 
   put(id: number, data: any) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/ownerResource/owner/${id}`;

@@ -41,8 +41,8 @@ export class UserPropertyDetailsComponent implements OnInit {
         this.loading = false;
         this.propertyData = this.response.data ? [this.response.data] : this.response;
       },
-      error: er => this.message = "Error" + er.message,
-      complete: () => this.message = "Completed..."
+      error: er => this.message = "Error" + er.message
+
     });
   }
 

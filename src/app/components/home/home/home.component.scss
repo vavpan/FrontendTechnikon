@@ -1,0 +1,48 @@
+h2 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1100ff;
+    text-shadow: 2px 2px #fff;
+    letter-spacing: 3px;
+    animation: neon 3s ease-in-out infinite;
+    /* Add a neon light animation */
+  }
+  
+  /* Keyframes for the neon light animation */
+  @keyframes neon {
+    from {
+      text-shadow: 2px 2px #fff;
+    }
+    to {
+      text-shadow: 2px 2px #1100ff;
+    }
+  }
+  
+  /* Add a background gradient */
+  h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff7e5f, #ff7e5f, #ff7e5f, #ff7e5f);
+    background-size: 400%;
+    animation: backgroundGradient 10s ease-in-out infinite;
+    z-index: -1;
+  }
+  
+  /* Keyframes for the background gradient animation */
+  @keyframes backgroundGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

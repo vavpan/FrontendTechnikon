@@ -66,6 +66,9 @@ isAdmin(): boolean {
   return localStorage.getItem('role') === 'ADMIN';
 }
 
+isUser(): boolean {
+  return localStorage.getItem('role') === 'USER';
+}
 
 
 }
