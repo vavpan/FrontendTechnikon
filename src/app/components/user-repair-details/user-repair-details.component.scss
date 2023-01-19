@@ -1,9 +1,43 @@
 .update-button {
-    background-color: #ffa500; /* orange color */
+    background-color: #f5c874; /* orange color */
+    padding: 8px 20px; /* add some padding */
+    border-radius: 3px; /* round the button's corners */
+    font-weight: bold; /* make the text bold */
+    transition: all 0.2s ease-in-out; /* add a smooth transition effect */
+    /* added properties */
+    width: 80px;
+    text-align: center;
+    margin: 10px auto;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .update-button:hover {
+    background-color: #6d4c41;
+    color:white;
+    /* added properties */
+    transform: scale(1.1);
+  }
+  
+.delete-button {
+    background-color: #f57474; /* orange color */
+    padding: 8px 20px; /* add some padding */
+    border-radius: 3px; /* round the button's corners */
+    font-weight: bold; /* make the text bold */
+    transition: all 0.2s ease-in-out; /* add a smooth transition effect */
+    /* added properties */
+    width: 80px;
+    text-align: center;
+    margin: 10px auto;
+    border: none;
+    cursor: pointer;
 }
 
-.delete-button {
-    background-color: #ff0000; /* red color */
+.update-button:hover {
+    background-color: #6d4c41;
+    color:white;
+    /* added properties */
+    transform: scale(1.1);
 }
 
 .btn{

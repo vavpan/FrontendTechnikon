@@ -1,0 +1,12 @@
+.update-button {
+    background-color: #ffa500; /* orange color */
+    padding: 8px 20px; /* add some padding */
+    border-radius: 3px; /* round the button's corners */
+    font-weight: bold; /* make the text bold */
+    transition: all 0.2s ease-in-out; /* add a smooth transition effect */
+  }
+  
+  .update-button:hover {
+    background-color: #6d4c41;
+    color:white;
+  }

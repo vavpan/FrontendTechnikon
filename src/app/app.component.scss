@@ -36,6 +36,8 @@
   box-shadow: 0px 0px 10px rgb(0, 81, 255); /* add a subtle box shadow */
   min-height: 100vh; /* to make sure the content takes up at least the full height of the viewport */
   animation: fadeIn 2s ease; /* add a fade in animation */
+  background-image: linear-gradient(to right, #f0f9ff, #c6f5ff);
+
 }
 
 /* Keyframes for the fade in animation */
@@ -47,6 +49,8 @@
     opacity: 1;
   }
 }
+
+
 
 .main-content h1::before {
   content: "";
