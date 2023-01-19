@@ -31,6 +31,8 @@
             <td>
                 <button class="update-button" (click)="onUpdateRepair(data.id)">Update</button>
                 <button class="delete-button" (click)="deleteRepair(data.id)">Delete</button>
+                <div *ngIf="message">{{ message }}</div>
+
                 
               </td>
         </tr>
