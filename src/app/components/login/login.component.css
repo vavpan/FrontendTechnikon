@@ -168,3 +168,12 @@ a:hover {
 span {
   margin-left: 50px;
 }
+
+label[for="username"]:after {
+  content: " *";
+  color: red;
+}
+
+.required{
+  color: red;
+}
