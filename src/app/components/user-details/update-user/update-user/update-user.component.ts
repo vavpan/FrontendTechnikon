@@ -28,6 +28,7 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit(): void {
     this.ownerId = localStorage.getItem("id");
 
+
   }
 
 

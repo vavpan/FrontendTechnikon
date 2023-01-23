@@ -1,6 +1,13 @@
 <div class="container">
   <h2>UPDATE OWNER</h2>
   <form>
+
+    <div class="form-group">
+      <label for="vat">ID</label>
+      <input [(ngModel)]="ownerId" name="id" type="text" class="form-control" id="id" readonly placeholder="ID">
+
+    </div>
+
     <div class="form-group">
       <label for="vat">Vat</label>
       <input [(ngModel)]="vat" name="vat" type="number" class="form-control" id="vat" placeholder="Enter vat">
