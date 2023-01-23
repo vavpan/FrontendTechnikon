@@ -1,4 +1,4 @@
-import { OwnersService } from 'src/app/services/owner/owners.service'; 
+import { OwnersService } from 'src/app/services/owner/owners.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -18,6 +18,7 @@ export class OwnersComponent implements OnInit {
   ownerData: any[] = [];
   ownerId!: number;
 
+
   constructor(private service: OwnersService) {
 
   }
@@ -32,13 +33,22 @@ export class OwnersComponent implements OnInit {
       next: data => {
         this.response = data;
         this.loading = false;
-        this.ownerData = [this.response.data];
+        this.message != null;
+        this.message = ' ';
+        if (this.response.data) {
+          this.ownerData = [this.response.data];
+        } else {
+          this.message = "Record with id " + this.ownerId + " does not exist.";
+          this.ownerData = [];
+        }
       },
-      error: er => this.message = "Error" + er.message,
-      complete: () => this.message = "Completed..."
+      error: er => this.message = "Error: " + er.message,
+      complete: () => {
+        if (!this.message) this.message = "Completed...";
+      }
     });
-
   }
+
 
   makeRequestGetAll() {
     this.loading = true;
@@ -52,11 +62,5 @@ export class OwnersComponent implements OnInit {
       complete: () => this.message = "Completed..."
     });
   }
-  
-  
-  
-  
-  
-
 
 }
