@@ -1,10 +1,17 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <label for="username">Username</label>
   <input type="text" id="username" formControlName="username">
+  <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.hasError('required')">
+    <p>Username is required</p>
+  </div>
+
   <br>
   <label for="username">Password</label>
   <label for="password"></label>
   <input type="password" id="password" formControlName="password">
+  <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+    <p>Password is required</p>
+  </div>
   <br>
   <button type="submit">Login</button>
 </form>
