@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
 
   loginUserData = {}
+  
   constructor(private fb: FormBuilder, private router: Router, private authenticationService: AuthenticationService, private userService: UserService) {
 
   }
