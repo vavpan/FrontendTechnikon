@@ -1,6 +1,7 @@
 import { UserService } from './../../services/user/user-service.service';
 import { AuthenticationService } from './../../services/authentication/AuthenticationService';
 import { Component, Input, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   currentUser!: string;
 
-  constructor(private UserService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-      this.UserService.currentUser.subscribe(user => this.currentUser = user);
+    this.userService.currentUser.subscribe(user => this.currentUser = user);
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd && event.urlAfterRedirects === '/login') {
+        this.currentUser = '';
+      }
+    });
   }
 }
