@@ -40,27 +40,5 @@ button:hover {
   background-color: #45a049;
 }
 
-label[for="e9"]:after {
-  content: " *";
-  color: red;
-}
-
-label[for="address"]:after {
-  content: " *";
-  color: red;
-}
-
-label[for="yearOfConstruction"]:after {
-  content: " *";
-  color: red;
-}
-
-label[for="propertyType"]:after {
-  content: " *";
-  color: red;
-}
 
 
-.required{
-  color: red;
-}

@@ -1,38 +1,32 @@
 <div class="container">
-    <div class="container">
-        <button (click)="makeRequestGetAll()" class="btn btn-secondary">Get All Properties</button>
-        <label for="propertyId">Enter Property ID:</label>
-        <input type="text" [(ngModel)]="propertyId" name="propertyId" required>
-        <button (click)="makeRequest()" class="btn btn-primary">Get Property</button> 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Address</th>
-                    <th>e9</th>
-                    <th>Year Of Construction</th>
-                    <th>Property Type</th>
+    <button (click)="makeRequestGetAll()" class="btn btn-secondary">Get All Properties</button>
+    <label for="propertyId">Enter Property ID:</label>
+    <input type="text" [(ngModel)]="propertyId" name="propertyId" required pattern="[0-9]*">
+    <button (click)="makeRequest()" class="btn btn-primary">Get Property</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Address</th>
+                <th>e9</th>
+                <th>Year Of Construction</th>
+                <th>Property Type</th>
 
-                    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of propertyData">
+                <td>{{data.id}}</td>
+                <td>{{data.address}}</td>
+                <td>{{data.e9}}</td>
+                <td>{{data.yearOfConstruction}}</td>
+                <td>{{data.propertyType}}</td>
 
-             
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of propertyData">
-                    <td>{{data.id}}</td>
-                    <td>{{data.address}}</td>
-                    <td>{{data.e9}}</td>
-                    <td>{{data.yearOfConstruction}}</td>
-                    <td>{{data.propertyType}}</td>
-                    
-            
 
-         
-                </tr>
-            </tbody>
 
-        </table>
-    </div>
 
-    
+            </tr>
+        </tbody>
+        <div class="alert alert-danger" *ngIf="message">{{message}}</div>
+    </table>
+</div>

@@ -1,5 +1,6 @@
 import { OwnersService } from 'src/app/services/owner/owners.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ownerpost',
@@ -9,44 +10,57 @@ import { Component, OnInit } from '@angular/core';
 
 export class OwnerpostComponent implements OnInit {
 
-  vat!: number;
-  name!: string;
-  surname!: string;
-  address!: string;
-  phoneNumber!: string;
-  email!: string;
-  username!: string;
-  password!: string;
-  role!: string;
+  postForm!: FormGroup;
   response: any;
   responseMessage!: string;
-  
-  constructor(private service: OwnersService) { }
+  formError: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder, private service: OwnersService) {
+    this.createForm();
   }
 
+  ngOnInit(): void {
+    this.formError = false;
+  }
+
+  createForm() {
+    this.postForm = this.fb.group({
+      vat: ['', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      address: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      role: ['', Validators.required]
+    });
+  }
 
   postOwner() {
-    const data = {
-      vat: this.vat,
-      name: this.name,
-      surname: this.surname,
-      address: this.address,
-      phoneNumber: this.phoneNumber,
-      email: this.email,
-      username: this.username,
-      password: this.password,
-      role: this.role
-    }
-    this.service.post(data).subscribe({
-      next: data => {
-        this.response = data;
-        this.responseMessage = "Post request was successful";
-      },
-      error: error => {
-        this.responseMessage = "Post request failed: " + error;
+    if (this.postForm.valid) {
+      const data = {
+        vat: this.postForm.value.vat,
+        name: this.postForm.value.name,
+        surname: this.postForm.value.surname,
+        address: this.postForm.value.address,
+        phoneNumber: this.postForm.value.phoneNumber,
+        email: this.postForm.value.email,
+        username: this.postForm.value.username,
+        password: this.postForm.value.password,
+        role: this.postForm.value.role
       }
-    });
+      this.service.post(data).subscribe({
+        next: data => {
+          this.response = data;
+          this.responseMessage = "Post request was successful";
+        },
+        error: error => {
+          this.formError = true;
+        }
+      });
+    } else {
+      this.postForm.markAllAsTouched();
+    }
   }
 }

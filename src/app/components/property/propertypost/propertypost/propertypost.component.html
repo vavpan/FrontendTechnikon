@@ -1,26 +1,22 @@
-<form [formGroup]="postForm" (ngSubmit)="postProperty()">
-  <div>
-    <label for="e9">E9:</label>
-    <input type="number" formControlName="e9">
-    <div *ngIf="postForm.get('e9')?.touched && postForm.get('e9')?.hasError('required')">E9 is required</div>
+<form class="form-container">
+  <div class="form-group">
+      <label for="e9">E9</label>
+      <input [(ngModel)]="e9" name="e9" type="number" class="form-control" id="e9" placeholder="Enter e9">
   </div>
-  <div>
-    
-    <label for="address">Address:</label>
-    <input type="text" formControlName="address">
-    <div *ngIf="postForm.get('address')?.touched && postForm.get('address')?.hasError('required')">Address is required</div>
+  <div class="form-group">
+      <label for="address">Address</label>
+      <input [(ngModel)]="address" name="address" type="text" class="form-control" id="address" placeholder="Enter address">
   </div>
-  <div>
-    <label for="yearOfConstruction">Year of Construction:</label>
-    <input type="text" formControlName="yearOfConstruction">
-    <div *ngIf="postForm.get('yearOfConstruction')?.touched && postForm.get('yearOfConstruction')?.hasError('required')">Year of Construction is required</div>
+  <div class="form-group">
+      <label for="yearOfConstruction">Year Of Construction</label>
+      <input [(ngModel)]="yearOfConstruction" name="yearOfConstruction" type="text" class="form-control" id="yearOfConstruction" placeholder="Enter Year Of Construction">
   </div>
-  <div>
-    <label for="propertyType">Property Type:</label>
-    <input type="text" formControlName="propertyType">
-    <div *ngIf="postForm.get('propertyType')?.touched && postForm.get('propertyType')?.hasError('required')">Property Type is required</div>
+  <div class="form-group">
+      <label for="propertyType">Property Type</label>
+      <input [(ngModel)]="propertyType" name="propertyType" type="text" class="form-control" id="propertyType" placeholder="Enter Property Type">
   </div>
-  <button type="submit" [disabled]="postForm.invalid">Post</button>
+  <div class="form-group">
+    <button (click)="onPostProperty()" class="btn btn-primary">Add property</button>
+      <div *ngIf="responseMessage" class="response-message">{{responseMessage}}</div>
+  </div>
 </form>
-<div *ngIf="responseMessage">{{responseMessage}}</div>
-<div *ngIf="formError">Please fill out all the fields</div>

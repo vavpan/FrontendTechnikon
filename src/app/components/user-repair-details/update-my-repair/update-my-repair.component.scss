@@ -63,4 +63,13 @@
     cursor: pointer;
   }
   
-  
+  input.readonly {
+    background-color: #f1f1f1; /* or any other color */
+    color: #333; /* or any other color */
+    border: none;
+  }
+
+  input[disabled]{
+    background-color: #f1f1f1;
+    color: #333;
+}

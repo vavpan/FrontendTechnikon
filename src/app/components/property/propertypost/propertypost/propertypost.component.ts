@@ -9,46 +9,67 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./propertypost.component.scss']
 })
 export class PropertypostComponent implements OnInit {
-  postForm!: FormGroup;
+
+  e9!: number;
+  address!: string;
+  yearOfConstruction!: string;
+  propertyType!: string;
   response: any;
   responseMessage!: string;
-  formError: boolean = false;
 
-  constructor(private fb: FormBuilder, private service: PropertyService) {
-    this.createForm();
+  exist!: boolean;
+
+  constructor(private service: PropertyService) {
   }
 
   ngOnInit(): void {
 
   }
 
-  createForm() {
-    this.postForm = this.fb.group({
-      e9: ['', Validators.required],
-      address: ['', Validators.required],
-      yearOfConstruction: ['', Validators.required],
-      propertyType: ['', Validators.required]
+  postProperty() {
+    const data = {
+      e9: this.e9,
+      address: this.address,
+      yearOfConstruction: this.yearOfConstruction,
+      propertyType: this.propertyType
+    }
+    this.service.post(data).subscribe({
+      next: data => {
+        this.response = data;
+        this.responseMessage = "The property has been added successfully";
+      },
+      error: error => {
+        this.responseMessage = "Failed to add property " + error;
+      }
     });
   }
 
-  postProperty() {
-    if (this.postForm.valid) {
-      const data = {
-        e9: this.postForm.value.e9,
-        address: this.postForm.value.address,
-        yearOfConstruction: this.postForm.value.yearOfConstruction,
-        propertyType: this.postForm.value.propertyType
-      }
-      this.service.post(data).subscribe({
-        next: data => {
-          this.response = data;
-          this.responseMessage = "Post request was successful";
-        },
-        error: error => {
-          this.formError = true;
+  async checkIfE9Exists(): Promise<boolean> {
+    let exist = false;
+    await this.service.getAndCheckE9(this.e9).toPromise().then(
+      data => {
+        if (data) {
+          this.responseMessage = "E9 already exists in the database. Please enter a different E9 number.";
+          exist = true;
+        } else {
+          exist = false;
+        }
+      }).catch(err => {
+        if (err.status === 404) {
+          exist = false;
+        } else {
+          this.responseMessage = "Something went wrong. Please try again later.";
+          console.error(err);
         }
       });
-    } 
+    return exist;
   }
-  
+
+  async onPostProperty() {
+    if (!await this.checkIfE9Exists()) {
+      this.postProperty();
+    }
+  }
+
 }
+

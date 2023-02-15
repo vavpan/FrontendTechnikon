@@ -12,8 +12,8 @@ export class PropertyService {
 
   }
 
-  get(repairId: number) {
-    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${repairId}`;
+  get(propertyId: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/${propertyId}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
 
@@ -54,7 +54,22 @@ export class PropertyService {
     return this.http.get(url, { headers: headers })
       .pipe(
         retry(1),
-        catchError(error => throwError(() => 'Something is wrong...'))
+        catchError(error => throwError(() => 'Something is wrong with getting e9...'))
+      );
+  }
+
+  getAndCheckE9(e9: number) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property/checkE9/${e9}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong with getting e9...'))
       );
   }
 
@@ -74,17 +89,17 @@ export class PropertyService {
   }
 
   post(data: any) {
-    const url = 'http://localhost:8080/WebTechnikonProject/resources/propertyResource/property';
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/property`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
- const headers = new HttpHeaders()
+    const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
     return this.http.post(url, JSON.stringify(data), { headers: headers })
       .pipe(
         retry(1),
-        catchError(error => throwError(() => 'Something is wrong...'))
+        catchError(error => throwError(() => 'Something is wrong with adding the property...'))
       );
 
   }
@@ -105,14 +120,13 @@ export class PropertyService {
       );
   }
 
-
-  putAddress(id: number, data: any) {
-    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/updateAddress/${id}`;
+  putE9(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/e9/${id}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
-    .set('Content-Type', 'text/plain')
-    .set('crossDomain', 'true')
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.put(url, data, { headers: headers })
@@ -122,13 +136,31 @@ export class PropertyService {
       );
   }
 
+
+  putAddress(id: number, data: any) {
+    const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/updateAddress/${id}`;
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
+      .set('Authorization', 'Basic ' + btoa(username + ':' + password));
+
+    return this.http.put(url, data, { headers: headers })
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Something is wrong...'))
+      );
+  }
+
+
   putYearOfConstruction(id: number, data: any) {
     const url = `http://localhost:8080/WebTechnikonProject/resources/propertyResource/yearOfConstruction/${id}`;
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
-    .set('Content-Type', 'text/plain')
-    .set('crossDomain', 'true')
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.put(url, data, { headers: headers })
@@ -143,8 +175,8 @@ export class PropertyService {
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     const headers = new HttpHeaders()
-    .set('Content-Type', 'text/plain')
-    .set('crossDomain', 'true')
+      .set('Content-Type', 'text/plain')
+      .set('crossDomain', 'true')
       .set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
     return this.http.put(url, data, { headers: headers })
@@ -154,7 +186,7 @@ export class PropertyService {
       );
   }
 
-  
+
 
 
   delete(propertyId: number) {

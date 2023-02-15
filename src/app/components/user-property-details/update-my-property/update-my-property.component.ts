@@ -47,6 +47,22 @@ export class UpdateMyPropertyComponent implements OnInit {
     });
   }
 
+  updateE9() {
+
+    const data = { e9: this.e9 }
+
+    this.service.putE9(this.propertyId, data.e9).subscribe(
+      data => {
+        console.log("e9 update request is successful ", data);
+        this.message = 'e9 updated successfully';
+      },
+      error => {
+        console.log("Error", error);
+        this.message = 'Error updating vat: ' + error.message;
+      }
+    );
+  }
+
   updateAddress() {
 
     const data = { address: this.address }

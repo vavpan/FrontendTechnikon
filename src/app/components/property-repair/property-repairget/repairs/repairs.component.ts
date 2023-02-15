@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './repairs.component.html',
   styleUrls: ['./repairs.component.scss']
 })
-export class RepairsComponent implements OnInit{
+export class RepairsComponent implements OnInit {
 
   response: any;
   loading = false;
@@ -14,41 +14,57 @@ export class RepairsComponent implements OnInit{
   repairData: any[] = [];
   repairId!: number;
 
-constructor(private service: RepairService){
+  constructor(private service: RepairService) {
 
-}
+  }
 
-ngOnInit(): void {
-  
-}
- 
+  ngOnInit(): void {
 
-makeRequest() {
-  this.loading = true;
-  this.service.get(this.repairId).subscribe({
-    next: data => {
-      this.response = data;
-      this.loading = false;
-      this.repairData = [this.response.data];
-    },
-    error: er => this.message = "Error" + er.message,
-    complete: () => this.message = "Completed..."
-  });
+  }
 
-}
 
-makeRequestGetAll() {
-  this.loading = true;
-  this.service.getAll().subscribe({
-    next: data => {
-      this.response = data;
-      this.loading = false;
-      this.repairData = this.response;
-    },
-    error: er => this.message = "Error" + er.message,
-    complete: () => this.message = "Completed..."
-  });
-}
+  makeRequest() {
+
+    if (isNaN(this.repairId)) {
+      this.message = " Please enter a valid integer.";
+      this.repairData = [];
+      return;
+    }
+
+    this.loading = true;
+    this.service.get(this.repairId).subscribe({
+      next: data => {
+        this.response = data;
+        this.loading = false;
+        this.message != null;
+        this.message = ' ';
+        if(this.response.data){
+          this.repairData = [this.response.data];
+        } else {
+            this.message = " Record with id " + this.repairId + " does not exist";
+            this.repairData = [];
+        }
+      },
+      error: er => this.message = "Error" + er.message,
+      complete: () => {
+        if (!this.message) this.message = "Completed...";
+      }
+    });
+
+  }
+
+  makeRequestGetAll() {
+    this.loading = true;
+    this.service.getAll().subscribe({
+      next: data => {
+        this.response = data;
+        this.loading = false;
+        this.repairData = this.response;
+      },
+      error: er => this.message = "Error" + er.message,
+      complete: () => this.message = "Completed..."
+    });
+  }
 
 
 }

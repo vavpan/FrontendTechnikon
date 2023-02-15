@@ -28,6 +28,12 @@ export class OwnersComponent implements OnInit {
 
 
   makeRequest() {
+
+    if (isNaN(this.ownerId)) {
+      this.message = "Please enter a valid integer.";
+      this.ownerData = [];
+      return;
+  }
     this.loading = true;
     this.service.get(this.ownerId).subscribe({
       next: data => {

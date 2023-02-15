@@ -47,7 +47,4 @@ export class PropertyputComponent implements OnInit {
 
   }
 
-
-
-
 }

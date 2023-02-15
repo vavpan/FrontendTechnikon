@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication/AuthenticationService';
 import { UserService } from './services/user/user-service.service';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,7 @@ import { UserService } from './services/user/user-service.service';
 export class AppComponent implements OnInit {
   title = 'frontTechnikon';
 
-  constructor(public authenticationService: AuthenticationService, private router: Router) {}
+  constructor(public authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     if (this.authenticationService.isAuthenticated() && localStorage.getItem('role') === 'ADMIN') {
@@ -20,6 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+    console.log("User: " + localStorage.getItem('username') + " logged out.");
     localStorage.removeItem('authenticated');
     localStorage.removeItem('username');
     this.router.navigate(['/login']);

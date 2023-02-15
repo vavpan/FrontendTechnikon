@@ -1,50 +1,62 @@
-<form>
+<form [formGroup]="postForm" (ngSubmit)="postOwner()">
   <div class="form-group">
-    <label for="vat">Vat</label>
-    <input [(ngModel)]="vat" name="vat" type="number" class="form-control" id="vat" placeholder="Enter vat">
+    <label for="vat">Vat <span class="text-danger">*</span></label>
+    <input formControlName="vat" type="number" class="form-control" id="vat" placeholder="Enter vat">
+    <div *ngIf="postForm.get('vat')?.touched && postForm.get('vat')?.hasError('required')">Vat is required</div>
   </div>
   <div class="form-group">
-    <label for="name">Name</label>
-    <input [(ngModel)]="name" name="name" type="text" class="form-control" id="name" placeholder="Enter name">
+    <label for="name">Name <span class="text-danger">*</span></label>
+    <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter name">
+    <div *ngIf="postForm.get('name')?.touched && postForm.get('name')?.hasError('required')">Name is required</div>
   </div>
   <div class="form-group">
-    <label for="surname">Surname</label>
-    <input [(ngModel)]="surname" name="surname" type="text" class="form-control" id="surname"
-      placeholder="Enter surname">
+    <label for="surname">Surname <span class="text-danger">*</span></label>
+    <input formControlName="surname" type="text" class="form-control" id="surname" placeholder="Enter surname">
+    <div *ngIf="postForm.get('surname')?.touched && postForm.get('surname')?.hasError('required')">Surname is required
+    </div>
   </div>
   <div class="form-group">
-    <label for="address">Address</label>
-    <input [(ngModel)]="address" name="address" type="text" class="form-control" id="address"
-      placeholder="Enter address">
+    <label for="address">Address <span class="text-danger">*</span></label>
+    <input formControlName="address" type="text" class="form-control" id="address" placeholder="Enter address">
+    <div *ngIf="postForm.get('address')?.touched && postForm.get('address')?.hasError('required')">Address is required
+    </div>
   </div>
   <div class="form-group">
-    <label for="phoneNumber">PhoneNumber</label>
-    <input [(ngModel)]="phoneNumber" name="phoneNumber" type="text" class="form-control" id="phoneNumber"
+    <label for="phoneNumber">PhoneNumber <span class="text-danger">*</span></label>
+    <input formControlName="phoneNumber" type="text" class="form-control" id="phoneNumber"
       placeholder="Enter phoneNumber">
+    <div *ngIf="postForm.get('phoneNumber')?.touched && postForm.get('phoneNumber')?.hasError('required')">PhoneNumber
+      is required</div>
   </div>
   <div class="form-group">
-    <label for="email">Email</label>
-    <input [(ngModel)]="email" name="email" type="text" class="form-control" id="email" placeholder="Enter email">
+    <label for="email">Email <span class="text-danger">*</span></label>
+    <input formControlName="email" type="text" class="form-control" id="email" placeholder="Enter email">
+    <div *ngIf="postForm.get('email')?.touched && postForm.get('email')?.hasError('required')">Email is required</div>
   </div>
   <div class="form-group">
-    <label for="username">Username</label>
-    <input [(ngModel)]="username" name="username" type="text" class="form-control" id="username"
-      placeholder="Enter Username">
+    <label for="username">Username <span class="text-danger">*</span></label>
+    <input formControlName="username" type="text" class="form-control" id="username" placeholder="Enter Username">
+    <div *ngIf="postForm.get('username')?.touched && postForm.get('username')?.hasError('required')">Username is
+      required</div>
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <input [(ngModel)]="password" name="password" type="text" class="form-control" id="password"
-      placeholder="Enter password">
+    <label for="password">Password <span class="text-danger">*</span></label>
+    <input formControlName="password" type="text" class="form-control" id="password" placeholder="Enter password">
+    <div *ngIf="postForm.get('password')?.touched && postForm.get('password')?.hasError('required')">Password is
+      required</div>
   </div>
-
   <div class="form-group">
-    <label for="role">Role</label>
-    <select [(ngModel)]="role" name="role" id="role" class="custom-select">
+    <label for="role">Role <span class="text-danger">*</span></label>
+    <select formControlName="role" id="role" class="custom-select">
       <option value="ADMIN">ADMIN</option>
       <option value="USER">USER</option>
-   </select>
-</div>
-  <button (click)="postOwner()">Add owner</button>
-  <div *ngIf="responseMessage">{{responseMessage}}</div>
-
+    </select>
+    <div *ngIf="postForm.get('role')?.touched && postForm.get('role')?.hasError('required')">Role is required</div>
+  </div>
+  <button type="submit" [disabled]="postForm.invalid">Add owner</button>
+  <div *ngIf="responseMessage" class="response-message">{{responseMessage}}</div>
+  <div *ngIf="postForm.touched && postForm.invalid">
+    All fields are required
+  </div>
+  
 </form>

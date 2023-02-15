@@ -4,26 +4,29 @@
 
     <div class="form-group">
       <label for="repairId">Repair ID</label>
-      <input type="text" class="form-control" id="repairId" placeholder="Enter repair id" [value]="repairId" readonly>
+      <input type="text" class="form-control" id="repairId" placeholder="Enter repair id" [value]="repairId" readonly
+        disabled>
     </div>
 
     <div class="form-group">
       <label for="repairType">Repair Type</label>
-      <input [(ngModel)]="repairType" name="repairType" type="text" class="form-control" id="repairType" placeholder="Enter repair type">
+      <input [(ngModel)]="repairType" name="repairType" type="text" class="form-control" id="repairType"
+        placeholder="Enter repair type">
       <button (click)="updateRepairType()" class="btn btn-primary update-button">Quick update</button>
     </div>
     <div class="form-group">
       <label for="repairDescription">Repair Description</label>
-      <input [(ngModel)]="repairDescription" name="repairDescription" type="text" class="form-control" id="repairDescription" placeholder="Enter repair description">
+      <input [(ngModel)]="repairDescription" name="repairDescription" type="text" class="form-control"
+        id="repairDescription" placeholder="Enter repair description">
       <button (click)="updateRepairDescription()" class="btn btn-primary update-button">Quick update</button>
     </div>
     <div class="form-group">
       <label for="submissionDate">Submission Date</label>
-      <input [(ngModel)]="submissionDate" name="submissionDate" type="text" class="form-control" id="submissionDate" placeholder="Enter Submission Date">
+      <input [(ngModel)]="submissionDate" name="submissionDate" type="text" class="form-control" id="submissionDate"
+        placeholder="Enter Submission Date">
       <button (click)="updateSubmissionDate()" class="btn btn-primary update-button">Quick update</button>
     </div>
     <button (click)="putRepair(repairId)" class="btn btn-primary update-repair-button">Update Repair</button>
     <p>{{message}}</p>
   </form>
 </div>
-

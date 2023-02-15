@@ -1,7 +1,7 @@
 <div class="container">
     <button (click)="makeRequestGetAll()" class="btn btn-secondary">Get All Owners</button>
     <label for="ownerId">Enter Owner ID:</label>
-    <input type="text" [(ngModel)]="ownerId" name="ownerId" required>
+    <input type="text" [(ngModel)]="ownerId" name="ownerId" required pattern="[0-9]*">
     <button (click)="makeRequest()" class="btn btn-primary">Get owner</button>
     <table class="table table-striped">
         <thead class="thead-dark">
