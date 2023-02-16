@@ -17,3 +17,11 @@
 </form>
 
 <a class="center-link" routerLink="/self-registration">Self-Registration</a>
+
+<div *ngIf="showInitButton">
+  <button class="init-button" (click)="init()">Initialize</button>
+</div>
+
+<div *ngIf="showErrorMessage">
+  <p>Something went wrong during initialization. Please try again.</p>
+</div>

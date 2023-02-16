@@ -3,6 +3,7 @@ import { AuthenticationService } from 'src/app/services/authentication/Authentic
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { InitService } from 'src/app/services/init/init.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,9 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
+  showInitButton: boolean = true;
+  showErrorMessage = false;
+
   loginForm: FormGroup = this.fb.group({
     username: this.fb.control('', Validators.required),
     password: this.fb.control('', Validators.required)
@@ -21,8 +25,8 @@ export class LoginComponent implements OnInit {
 
 
   loginUserData = {}
-  
-  constructor(private fb: FormBuilder, private router: Router, private authenticationService: AuthenticationService, private userService: UserService) {
+
+  constructor(private fb: FormBuilder, private router: Router, private authenticationService: AuthenticationService, private userService: UserService, private initService: InitService) {
 
   }
 
@@ -62,4 +66,29 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
+  init() {
+    console.log('Initializing...');
+    this.showInitButton = false;
+    this.showErrorMessage = false;
+    this.initService.init().subscribe(
+      () => {
+        console.log('Initialization completed.');
+      },
+      (error) => {
+        console.log('An error occurred during initialization:', error);
+        this.showErrorMessage = true;
+        this.showInitButton = true;
+      },
+    );
+  }
+  
+
 }
+
+
+
+
+
+
+

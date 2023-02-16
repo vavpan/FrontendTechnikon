@@ -15,10 +15,6 @@
   
 }
 
-
-
-
-
 .login-title {
   text-align: center;
   margin-bottom: 20px;
@@ -177,3 +173,58 @@ label[for="username"]:after {
 .required{
   color: red;
 }
+
+
+button.init-button {
+  background: linear-gradient(to bottom, #4d90fe 0%, #357ae8 100%);
+  border: 1px solid #3079ed;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+button.init-button:hover {
+  background: linear-gradient(to bottom, #357ae8 0%, #4d90fe 100%);
+  border-color: #4d90fe;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  transition: width 0.5s ease;
+}
+
+.progress.complete {
+  background-color: #4CAF50;
+}
+
+.progress.error {
+  background-color: #FF5733;
+}
+
+button.init-button {
+  margin-bottom: 10px;
+}
+
+
+
